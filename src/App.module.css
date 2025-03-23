@@ -1,0 +1,19 @@
+.app {
+  width: 100vw;
+}
+
+.appNav {
+  display: flex;
+  background: #eee;
+  border-bottom: 1px solid #ccc;
+  padding: 16px;
+  gap: 16px;
+}
+.appNav button {
+  margin-left: auto;
+}
+
+.appRoutes {
+  padding: 16px
+}
+
