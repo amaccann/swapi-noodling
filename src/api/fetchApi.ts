@@ -1,6 +1,6 @@
 import { SWAPI_BASE_DOMAIN } from '../constants';
 
-const HEADERS = {
+const OPTIONS = {
   'headers': {
     'accept': 'application/json'
   }
@@ -8,11 +8,11 @@ const HEADERS = {
 
 export default async function fetchApi(path: string) {
   const hasDomain = path.includes(SWAPI_BASE_DOMAIN);
-  const finalPath = hasDomain ? path : `${SWAPI_BASE_DOMAIN}/${path}`.replace(/[/]{2,}/g, '/');
+  const finalPath = hasDomain ? path : `${SWAPI_BASE_DOMAIN}/${path}`;
   let json, error, response;
 
   try {
-    response = await fetch(finalPath, HEADERS);
+    response = await fetch(finalPath, OPTIONS);
     json = await response.json();
   } catch (err) {
     error = err;
