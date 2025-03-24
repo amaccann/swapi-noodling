@@ -3,12 +3,14 @@ import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
+import formatNumber from '../utils/formatNumber';
 
 export default function PlanetDetail() {
   const {id} = useParams();
   const {data} = useQueryByPath<Planet>(`planets/${id}`);
-  
   const planet = data?.json;
+  const films = planet?.films || [];
+  const residents = planet?.residents || [];
   
   if (!planet) {
     return null;    
@@ -17,32 +19,43 @@ export default function PlanetDetail() {
   return (
     <div>
       <h1>{planet.name}</h1>
-      <p><strong>Population:</strong> {planet.population}</p>
+      <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
       <p><strong>Climate:</strong> {planet.climate}</p>
-      <h4>Films:</h4>
 
-      <ul>
-        {(planet?.films || []).map((filmUrl) => (
-          <li key={filmUrl}>
-            <LabelByUrl<Film> propKey="title" url={filmUrl} />
-          </li>
-        ))}
-      </ul>
+      {films.length ? (
+        <>
+          <h4>Films:</h4>
+          <ul>
+            {films.map((filmUrl) => (
+              <li key={filmUrl}>
+                <LabelByUrl<Film> propKey="title" url={filmUrl} />
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>{planet.name} does not appear in any films</p>
+      )}
 
-
-      <h4>Notable residents:</h4>
-      <ul>
-        {(planet?.residents || []).map((residentUrl) => {
-          const id = getIdFromUrl(residentUrl);
-          return (
-            <li key={residentUrl}>
-              <Link to={`/people/${id}`}>
-                <LabelByUrl<People> url={residentUrl} />
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      {residents.length ? (
+        <>
+          <h4>Notable residents:</h4>
+          <ul>
+            {residents.map((residentUrl) => {
+              const id = getIdFromUrl(residentUrl);
+              return (
+                <li key={residentUrl}>
+                  <Link to={`/people/${id}`}>
+                    <LabelByUrl<People> url={residentUrl} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      ) : (
+        <p>{planet.name} has no notable residents</p>
+      )}
 
     </div>
   );

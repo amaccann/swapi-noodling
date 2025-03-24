@@ -30,6 +30,7 @@ https://swapi-noodling.netlify.app
 - Add some "Expiry" logic to the caching to ensure it stays relatively fresh vs. any BE updates.
   - UI has a `clear cache` but realistically we'd want some way to track if/when the data has changed upstream. 
   - Would come down to requirements, maybe every `n` days the data's re-fetched.
+  - Or, only allow a maximum of `n` items in the cache at one time
   - Or maybe there's a `ping` before the app starts, tracking each schema change
   - Etc. etc
 - More tests! Not 100%, but various business logic could be covered through "smart" Component testing
