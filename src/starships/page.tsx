@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router';
+import { useParams } from 'react-router';
 
 import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Starship } from '../types';
@@ -7,19 +7,12 @@ import { SortableTable } from '../components';
 import StarshipsBody from './StarshipsBody';
 import StarshipsHeader from './StarshipsHeader';
 import StarshipDetail from './StarshipDetail';
-
+import useSearchByPath from '../utils/useSearchByPath';
 
 export default function StarshipsPage() {
   const {id} = useParams();
-  const [queryString, setSearch] = useSearchParams();
-  const searchBy = queryString.get('search') || '';
-  const path = 'starships' + (searchBy ? `?search=${searchBy}` : '');
+  const {path, searchBy, setSearchBy} = useSearchByPath('starships');
   const {data, error} = useQueryByPath<Collection<Starship>>(path);
-
-  function onSearchChange(value: string | number) {
-    setSearch(`?search=${value}`);
-  }
-  console.log('data', data);
 
   if (error) {
     return (
@@ -40,7 +33,7 @@ export default function StarshipsPage() {
 
       <InputField
         debounceBy={675}
-        onChange={onSearchChange}
+        onChange={setSearchBy}
         placeholder={'Search for starships'}
         value={searchBy} />
 

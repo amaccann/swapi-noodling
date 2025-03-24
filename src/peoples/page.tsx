@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router';
+import { useParams } from 'react-router';
 import { Collection, People } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
 import InputField from '../components/Input';
@@ -6,17 +6,12 @@ import { SortableTable } from '../components';
 import PeoplesBody from './PeoplesBody';
 import PeoplesHeader from './PeoplesHeader';
 import PeopleDetail from './PeopleDetail';
+import useSearchByPath from '../utils/useSearchByPath';
 
 export default function PeoplesPage() {
   const {id} = useParams();
-  const [queryString, setSearch] = useSearchParams();
-  const searchBy = queryString.get('search') || '';
-  const path = 'people' + (searchBy ? `?search=${searchBy}` : '');
+  const {path, searchBy, setSearchBy} = useSearchByPath('people');
   const {data, error} = useQueryByPath<Collection<People>>(path);
-
-  function onSearchChange(value: string | number) {
-    setSearch(`?search=${value}`);
-  }
 
   if (error) {
     return (
@@ -37,7 +32,7 @@ export default function PeoplesPage() {
   
       <InputField
         debounceBy={675}
-        onChange={onSearchChange}
+        onChange={setSearchBy}
         placeholder={'Search for characters'}
         value={searchBy} />
   

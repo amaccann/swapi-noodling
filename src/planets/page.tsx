@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router';
+import { useParams } from 'react-router';
 
 import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Planet } from '../types';
@@ -7,18 +7,13 @@ import PlanetsHeader from './PlanetsHeader';
 import PlanetsBody from './PlanetsBody';
 import { SortableTable } from '../components';
 import PlanetDetail from './PlanetDetail';
+import useSearchByPath from '../utils/useSearchByPath';
 
 
 export default function PlanetsPage() {
   const {id} = useParams();
-  const [queryString, setSearch] = useSearchParams();
-  const searchBy = queryString.get('search') || '';
-  const path = 'planets' + (searchBy ? `?search=${searchBy}` : '');
+  const {path, searchBy, setSearchBy} = useSearchByPath('planets');
   const {data, error} = useQueryByPath<Collection<Planet>>(path);
-
-  function onSearchChange(value: string | number) {
-    setSearch(`?search=${value}`);
-  }
 
   if (error) {
     return (
@@ -39,7 +34,7 @@ export default function PlanetsPage() {
 
       <InputField
         debounceBy={675}
-        onChange={onSearchChange}
+        onChange={setSearchBy}
         placeholder={'Search for planets'}
         value={searchBy} />
 

@@ -36,6 +36,7 @@ https://swapi-noodling.netlify.app
 - More tests! Not 100%, but various business logic could be covered through "smart" Component testing
   - For now, there's some tests for the Utility functions
   - `App.test.tsx` at least covers basic rendering :-D
+- linting is basic, so could be more robust, just to ensure more code consistency
 - The `LabelByUrl` is also causing a lot of fetches per film / homeworld
   - In an ideal world, I'd argue that these should be sub-objects to reduce extra requests to the BE / `await` logic in the FE.
 - The `SortableTable` logic could be abstracted more / better ...
