@@ -1,3 +1,13 @@
+#### Netlify site
+
+https://swapi-noodling.netlify.app
+
+#### Current build status:
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b5d1c21e-fcd4-4da3-a769-3c0edf7aeccf/deploy-status)](https://app.netlify.com/sites/swapi-noodling/deploys)
+
+
+
 ### Development notes
 
 - I went with React's `useContext` API vs. some flavour of `redux`, simply 'cos there was no real complexity here & wanted a "fast" MVP.
