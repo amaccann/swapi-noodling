@@ -2,6 +2,7 @@ import { ReactNode, useMemo, useState } from 'react';
 
 import styles from './SortableTable.module.css';
 import { SortDirection, SortableTableHeaderProps } from '../types';
+import castTrueValue from '../utils/castTrueValue';
 
 export default function SortableTable<T>({
   body: TableBody,
@@ -22,13 +23,17 @@ export default function SortableTable<T>({
   const [sortBy, setSortBy] = useState<string>(defaultSortBy);
  
   const sortedResults = useMemo((): T[] => {
-    return [...data].sort((left: T, right: T) => {
-      const leftValue = left[sortBy as keyof T];
-      const rightValue = right[sortBy as keyof T];
-      const diff = sortDirection === SortDirection.Asc ? leftValue > rightValue : rightValue > leftValue;
-      return diff ? 1 : -1;
-    });
+    return [...data].sort(sortData);
   }, [sortDirection, sortBy, JSON.stringify(data)]);
+
+  function sortData<T>(l: T, r: T) {
+    const leftValue = castTrueValue<T>(l[sortBy as keyof T]);
+    const rightValue = castTrueValue<T>(r[sortBy as keyof T]);
+
+    const diff = sortDirection === SortDirection.Asc ? leftValue > rightValue : rightValue > leftValue;
+
+    return diff ? 1 : -1;
+  }
 
   function onClickSortableHeader(value: string) {
     if (!sortByColumns.includes(value)) {

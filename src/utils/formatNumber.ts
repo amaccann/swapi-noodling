@@ -1,4 +1,4 @@
-const UNKNOWN = 'unknown';
+import { UNKNOWN } from '../constants';
 
 const formatter = new Intl.NumberFormat('en-US');
 
