@@ -1,11 +1,22 @@
+import SortableTh from '../components/SortableTh';
 import { SortableTableHeaderProps } from '../types';
 
-export default function PeoplesHeader({onClick}: SortableTableHeaderProps) {
+export default function PeoplesHeader({
+  onClick,
+  sortBy,
+  sortDirection,
+}: SortableTableHeaderProps) {
   return (
     <thead>
       <tr>
-        <th onClick={onClick('name')}>Name</th>
-        <th onClick={onClick('homeworld')}>Homeworld</th>
+        <SortableTh
+          active={sortBy === 'name'}
+          sortDirection={sortDirection}
+          onClick={onClick('name')}>Name</SortableTh>
+        <SortableTh
+          active={sortBy === 'homeworld'}
+          sortDirection={sortDirection}
+          onClick={onClick('homeworld')}>Homeworld</SortableTh>
       </tr>
     </thead>
   );

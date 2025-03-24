@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import { People } from '../types';
 import { ReactNode } from 'react';
 import getIdFromUrl from '../utils/getIdFromUrl';
+import { LabelByUrl } from '../components';
 
 export default function PeoplesBody({data}: { data: People[] }): ReactNode {
   return (
@@ -14,7 +15,9 @@ export default function PeoplesBody({data}: { data: People[] }): ReactNode {
             <td>
               <Link to={`/people/${id}`}>{person.name}</Link>
             </td>
-            <td>{person.homeworld}</td>
+            <td>
+              <LabelByUrl url={person.homeworld} />
+            </td>
           </tr>
         );
       })}

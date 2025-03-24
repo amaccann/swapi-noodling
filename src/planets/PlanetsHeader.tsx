@@ -1,11 +1,22 @@
+import SortableTh from '../components/SortableTh';
 import { SortableTableHeaderProps } from '../types';
 
-export default function PlanetsHeader({onClick}: SortableTableHeaderProps) {
+export default function PlanetsHeader({
+  onClick,
+  sortBy,
+  sortDirection,
+}: SortableTableHeaderProps) {
   return (
     <thead>
       <tr>
-        <th onClick={onClick('name')}>Name</th>
-        <th onClick={onClick('population')}>Population</th>
+        <SortableTh
+          onClick={onClick('name')}
+          active={sortBy === 'name'}
+          sortDirection={sortDirection}>Name</SortableTh>
+        <SortableTh
+          active={sortBy === 'population'}
+          sortDirection={sortDirection}
+          onClick={onClick('population')}>Population</SortableTh>
       </tr>
     </thead>
   );

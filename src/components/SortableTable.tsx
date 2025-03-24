@@ -1,12 +1,7 @@
 import { ReactNode, useMemo, useState } from 'react';
 
 import styles from './SortableTable.module.css';
-import { SortableTableHeaderProps } from '../types';
-
-enum SortDirection {
-  Asc = 'asc',
-  Desc = 'desc'
-};
+import { SortDirection, SortableTableHeaderProps } from '../types';
 
 export default function SortableTable<T>({
   body: TableBody,
@@ -26,7 +21,6 @@ export default function SortableTable<T>({
   const [sortDirection, setSortDirection] = useState<SortDirection>(SortDirection.Asc);
   const [sortBy, setSortBy] = useState<string>(defaultSortBy);
  
-
   const sortedResults = useMemo((): T[] => {
     return [...data].sort((left: T, right: T) => {
       const leftValue = left[sortBy as keyof T];
@@ -52,7 +46,10 @@ export default function SortableTable<T>({
   return (
     <>
       <table className={styles.table}>
-        <TableHeader onClick={onClickSortableHeader} />
+        <TableHeader
+          onClick={onClickSortableHeader}
+          sortBy={sortBy}
+          sortDirection={sortDirection} />
 
         {sortedResults.length ? (
           <TableBody data={sortedResults} />

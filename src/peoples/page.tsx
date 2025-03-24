@@ -48,8 +48,8 @@ export default function PeoplesPage() {
           body={PeoplesBody}
           data={data?.json?.results || []}
           header={PeoplesHeader}
-          sortByColumns={['name', 'population']}
-          type="planets"
+          sortByColumns={['name', 'homeworld']}
+          type="people"
         />
       )}
     </>

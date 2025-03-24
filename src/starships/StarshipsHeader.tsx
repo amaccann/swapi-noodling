@@ -1,11 +1,22 @@
+import SortableTh from '../components/SortableTh';
 import { SortableTableHeaderProps } from '../types';
 
-export default function StarshipsHeader({onClick}: SortableTableHeaderProps) {
+export default function StarshipsHeader({
+  onClick,
+  sortBy,
+  sortDirection,
+}: SortableTableHeaderProps) {
   return (
     <thead>
       <tr>
-        <th onClick={onClick('name')}>Name</th>
-        <th onClick={onClick('model')}>Model</th>
+        <SortableTh
+          active={sortBy === 'name'}
+          sortDirection={sortDirection}
+          onClick={onClick('name')}>Name</SortableTh>
+        <SortableTh
+          active={sortBy === 'model'}
+          sortDirection={sortDirection}
+          onClick={onClick('model')}>Model</SortableTh>
       </tr>
     </thead>
   );

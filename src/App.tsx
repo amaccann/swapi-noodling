@@ -36,15 +36,4 @@ function App() {
   );
 }
 
-// <SortableTable<People>
-//   body={PeoplesBody}
-//   header={PeoplesHeader}
-//   sortByColumns={['name']}
-//   type="people" />}
-// <SortableTable<Planet>
-//   body={StarshipsBody}
-//   header={StarshipsHeader}
-//   sortByColumns={['name']}
-//   type="starships" />}
-
 export default App;

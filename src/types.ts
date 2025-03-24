@@ -64,6 +64,13 @@ export interface People {
   starships: string[];
 }
 
+export enum SortDirection {
+  Asc = 'asc',
+  Desc = 'desc'
+};
+
 export interface SortableTableHeaderProps {
   onClick: (value: string) => (() => void) | undefined;
+  sortBy: string;
+  sortDirection: SortDirection
 }
