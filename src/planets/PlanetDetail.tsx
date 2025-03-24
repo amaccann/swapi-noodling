@@ -16,7 +16,7 @@ export default function PlanetDetail() {
 
   return (
     <div>
-      <h2>{planet.name}</h2>
+      <h1>{planet.name}</h1>
       <p><strong>Population:</strong> {planet.population}</p>
       <p><strong>Climate:</strong> {planet.climate}</p>
       <h4>Films:</h4>

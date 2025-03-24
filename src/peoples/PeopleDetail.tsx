@@ -18,7 +18,7 @@ export default function PeopleDetail() {
 
   return (
     <div>
-      <h2>{person.name}</h2>
+      <h1>{person.name}</h1>
       <p>
         <strong>Homeworld:</strong>
         <Link to={`/planets/${getIdFromUrl(homeworld?.url)}`}>

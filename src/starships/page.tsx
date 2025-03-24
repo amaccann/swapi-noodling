@@ -36,7 +36,7 @@ export default function StarshipsPage() {
 
   return (
     <>
-      <h3>Starships</h3>
+      <h1>Starships</h1>
 
       <InputField
         debounceBy={675}

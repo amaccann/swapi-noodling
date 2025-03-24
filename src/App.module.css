@@ -8,8 +8,17 @@
   border-bottom: 1px solid #ccc;
   padding: 16px;
   gap: 16px;
+  font-size: 14px;
 }
+
+
 .appNav button {
+  border: 1px solid #aaa;
+  color: #666;
+  cursor: pointer;
+  
+  border-radius: 25px;
+  padding: 0 16px;
   margin-left: auto;
 }
 

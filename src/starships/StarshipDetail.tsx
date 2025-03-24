@@ -15,7 +15,7 @@ export default function StarshipDetail() {
 
   return (
     <div>
-      <h2>{starship.name}</h2>
+      <h1>{starship.name}</h1>
       <p><strong>Model:</strong> {starship.model}</p>
       <p><strong>Crew:</strong> {starship.crew}</p>
       <h4>Films:</h4>

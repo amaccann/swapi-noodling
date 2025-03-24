@@ -33,7 +33,7 @@ export default function PeoplesPage() {
   
   return (
     <>
-      <h3>Characters</h3>
+      <h1>Characters</h1>
   
       <InputField
         debounceBy={675}

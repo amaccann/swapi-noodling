@@ -35,7 +35,7 @@ export default function PlanetsPage() {
 
   return (
     <>
-      <h3>Planets</h3>
+      <h1>Planets</h1>
 
       <InputField
         debounceBy={675}

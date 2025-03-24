@@ -1,5 +1,7 @@
 import { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
 
+import styles from './Input.module.css';
+
 type InputType = string | number;
 
 /**
@@ -44,6 +46,6 @@ export default function InputField({
   }, []);
 
   return (
-    <input onChange={onInputChange} placeholder={placeholder} value={value} />
+    <input className={styles.input} onChange={onInputChange} placeholder={placeholder} value={value} />
   );
 }
