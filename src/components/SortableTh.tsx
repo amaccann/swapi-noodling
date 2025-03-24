@@ -17,7 +17,7 @@ export default function SortableTh({
   const className = ['sortable-th'];
   let widget = '-';
   if (active) {
-    widget = sortDirection === SortDirection.Asc ? '^' : '!';
+    widget = sortDirection === SortDirection.Asc ? '⬆️' : '⬇️';
   }
 
   if (active) {
