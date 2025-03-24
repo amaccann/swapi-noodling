@@ -2,10 +2,9 @@ import { useParams } from 'react-router';
 
 import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Planet } from '../types';
-import InputField from '../components/Input';
 import PlanetsHeader from './PlanetsHeader';
 import PlanetsBody from './PlanetsBody';
-import { SortableTable } from '../components';
+import { Error, Input, SortableTable } from '../components';
 import PlanetDetail from './PlanetDetail';
 import useSearchByPath from '../utils/useSearchByPath';
 
@@ -16,12 +15,7 @@ export default function PlanetsPage() {
   const {data, error} = useQueryByPath<Collection<Planet>>(path);
 
   if (error) {
-    return (
-      <>
-        <h3>There was a problem loading this page...</h3>
-        <p>are you sure <em>{id || 'planets'}</em> exists?</p>
-      </>
-    );
+    return <Error type={id || 'planets'} />;
   }
 
   if (id) {
@@ -32,7 +26,7 @@ export default function PlanetsPage() {
     <>
       <h1>Planets</h1>
 
-      <InputField
+      <Input
         debounceBy={675}
         onChange={setSearchBy}
         placeholder={'Search for planets'}

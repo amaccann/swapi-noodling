@@ -2,8 +2,7 @@ import { useParams } from 'react-router';
 
 import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Starship } from '../types';
-import InputField from '../components/Input';
-import { SortableTable } from '../components';
+import { Error, Input, SortableTable } from '../components';
 import StarshipsBody from './StarshipsBody';
 import StarshipsHeader from './StarshipsHeader';
 import StarshipDetail from './StarshipDetail';
@@ -15,12 +14,7 @@ export default function StarshipsPage() {
   const {data, error} = useQueryByPath<Collection<Starship>>(path);
 
   if (error) {
-    return (
-      <>
-        <h3>There was a problem loading this page...</h3>
-        <p>are you sure <em>{id || 'starships'}</em> exists?</p>
-      </>
-    );
+    return <Error type={id || 'starships'} />;
   }
 
   if (id) {
@@ -31,7 +25,7 @@ export default function StarshipsPage() {
     <>
       <h1>Starships</h1>
 
-      <InputField
+      <Input
         debounceBy={675}
         onChange={setSearchBy}
         placeholder={'Search for starships'}

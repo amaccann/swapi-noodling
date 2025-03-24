@@ -1,8 +1,7 @@
 import { useParams } from 'react-router';
 import { Collection, People } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
-import InputField from '../components/Input';
-import { SortableTable } from '../components';
+import { Error, Input, SortableTable } from '../components';
 import PeoplesBody from './PeoplesBody';
 import PeoplesHeader from './PeoplesHeader';
 import PeopleDetail from './PeopleDetail';
@@ -14,12 +13,7 @@ export default function PeoplesPage() {
   const {data, error} = useQueryByPath<Collection<People>>(path);
 
   if (error) {
-    return (
-      <>
-        <h3>There was a problem loading this page...</h3>
-        <p>are you sure <em>{id || 'people'}</em> exists?</p>
-      </>
-    );
+    return <Error type={id || 'people'} />;
   }
   
   if (id) {
@@ -30,7 +24,7 @@ export default function PeoplesPage() {
     <>
       <h1>Characters</h1>
   
-      <InputField
+      <Input
         debounceBy={675}
         onChange={setSearchBy}
         placeholder={'Search for characters'}
