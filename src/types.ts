@@ -44,7 +44,11 @@ export interface People {
 }
 
 export interface Starship {
+  crew: string;
+  films: string[];
   name: string;
+  model: string;
+  url: string;
 }
 
 export interface Collection<T> {
