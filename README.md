@@ -3,6 +3,8 @@
 - I went with React' Context API vs. some flavour of `redux`, simply 'cos there was no real complexity.
   - So if there were more User Actions involved it'd make sense to use some reducer logic.
   - Instead, `useContext` was chosen for speed.
+- People => Homeworld doesn't sort correctly, visually anyway. 'cos the _actual_ field is a URL it's being sorted by that ... not the presented value (Homeworld planet via `LabelByUrl` component)
+  - Post MVP would obviously address this!
 - Also just used it as an excuse to fashion a quick bit of Query caching, to throttle the requests.
 
 ### Potential improvements:
