@@ -1,6 +1,7 @@
-import { ApiCacheItem, Film, People, Planet } from '../types';
+import { Film, People, Planet } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
+import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
 
 export default function PlanetDetail() {
@@ -8,9 +9,6 @@ export default function PlanetDetail() {
   const {data} = useQueryByPath<Planet>(`planets/${id}`);
   
   const planet = data?.json;
-  const filmData = useQueryByPath<Film>(planet?.films);
-  const residentsData = useQueryByPath<People>(planet?.residents);
-
   
   if (!planet) {
     return null;    
@@ -24,27 +22,22 @@ export default function PlanetDetail() {
       <h4>Films:</h4>
 
       <ul>
-        {(filmData.data as ApiCacheItem<Film>[]).map((item: ApiCacheItem<Film>, index) => {
-          const {json: film,loading } = item || {};
-
-          return (
-            <li key={index}>
-              {loading ? 'Loading' : film?.title}
-            </li>
-          );
-        })}
+        {(planet?.films || []).map((filmUrl) => (
+          <li key={filmUrl}>
+            <LabelByUrl<Film> propKey="title" url={filmUrl} />
+          </li>
+        ))}
       </ul>
+
 
       <h4>Notable residents:</h4>
       <ul>
-        {(residentsData.data as ApiCacheItem<People>[]).map((item: ApiCacheItem<People>, index) => {
-          const {json: person, loading } = item || {};
-          const id = getIdFromUrl(person?.url);
-
+        {(planet?.residents || []).map((residentUrl) => {
+          const id = getIdFromUrl(residentUrl);
           return (
-            <li key={index}>
+            <li key={residentUrl}>
               <Link to={`/people/${id}`}>
-                {loading ? 'Loading' : person?.name}
+                <LabelByUrl<People> url={residentUrl} />
               </Link>
             </li>
           );

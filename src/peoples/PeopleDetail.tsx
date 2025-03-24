@@ -1,6 +1,7 @@
-import { ApiCacheItem, Film, People, Planet } from '../types';
+import { Film, People, Planet, Starship } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
+import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
 
 export default function PeopleDetail() {
@@ -8,8 +9,6 @@ export default function PeopleDetail() {
   const {data} = useQueryByPath<People>(`people/${id}`);
   
   const person = data?.json;
-  const filmData = useQueryByPath<Film>(person?.films);
-  const starshipsData = useQueryByPath<People>(person?.starships);
   const homeworldData = useQueryByPath<Planet>(person?.homeworld);
   const homeworld = homeworldData?.data?.json;
   
@@ -29,14 +28,12 @@ export default function PeopleDetail() {
 
       <h4>Starships piloted:</h4>
       <ul>
-        {(starshipsData.data as ApiCacheItem<People>[]).map((item: ApiCacheItem<People>, index) => {
-          const {json: person, loading } = item || {};
-          const id = getIdFromUrl(person?.url);
-
+        {(person?.starships || []).map((starshipUrl) => {
+          const id = getIdFromUrl(starshipUrl);
           return (
-            <li key={index}>
-              <Link to={`/people/${id}`}>
-                {loading ? 'Loading' : person?.name}
+            <li key={starshipUrl}>
+              <Link to={`/starships/${id}`}>
+                <LabelByUrl<Starship> url={starshipUrl} />
               </Link>
             </li>
           );
@@ -46,15 +43,11 @@ export default function PeopleDetail() {
       <h4>Films:</h4>
 
       <ul>
-        {(filmData.data as ApiCacheItem<Film>[]).map((item: ApiCacheItem<Film>, index) => {
-          const {json: film,loading } = item || {};
-
-          return (
-            <li key={index}>
-              {loading ? 'Loading' : film?.title}
-            </li>
-          );
-        })}
+        {(person?.films || []).map((filmUrl) => (
+          <li key={filmUrl}>
+            <LabelByUrl<Film> propKey="title" url={filmUrl} />
+          </li>
+        ))}
       </ul>
     </div>
   );
