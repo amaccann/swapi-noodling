@@ -6,18 +6,21 @@ exports[`Main app portal renders app, taking snapshot 1`] = `
     <nav>
       <a
         data-discover="true"
+        data-testid="planets"
         href="/planets"
       >
         Planets
       </a>
       <a
         data-discover="true"
+        data-testid="people"
         href="/people"
       >
         People
       </a>
       <a
         data-discover="true"
+        data-testid="starships"
         href="/starships"
       >
         Starships

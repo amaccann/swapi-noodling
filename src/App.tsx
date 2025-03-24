@@ -12,9 +12,9 @@ function App() {
   return (
     <div className={styles.app}>
       <nav className={styles.appNav}>
-        <Link to="/planets">Planets</Link>
-        <Link to="/people">People</Link>
-        <Link to="/starships">Starships</Link>
+        <Link data-testid="planets" to="/planets">Planets</Link>
+        <Link data-testid="people" to="/people">People</Link>
+        <Link data-testid="starships" to="/starships">Starships</Link>
         <button onClick={() => clearAll()}>Clear cache</button>
       </nav>
 
