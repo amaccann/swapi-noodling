@@ -4,7 +4,7 @@ const formatter = new Intl.NumberFormat('en-US');
 
 export default function (num: number | string) {
   switch (true) {
-  case num === UNKNOWN:
+  case typeof num === 'string' && num.toLowerCase() === UNKNOWN:
     return num;
   case typeof num === 'string':
     return /^\d+$/.test(num) ? formatter.format(Number(num)) : num;

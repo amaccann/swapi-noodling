@@ -1,7 +1,7 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 export default {
   moduleNameMapper: {
-    '^.+\\.(css|less)$': '<rootDir>/jest/css-stub.js'
+    '^.+\\.(css|less)$': '<rootDir>/jest/css-stub.ts'
   },
   setupFilesAfterEnv: [
     '<rootDir>/jest/setupTests.ts'

@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main app portal renders app, taking snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <nav>
+      <a
+        data-discover="true"
+        href="/planets"
+      >
+        Planets
+      </a>
+      <a
+        data-discover="true"
+        href="/people"
+      >
+        People
+      </a>
+      <a
+        data-discover="true"
+        href="/starships"
+      >
+        Starships
+      </a>
+      <button>
+        Clear cache
+      </button>
+    </nav>
+    <div>
+      <h1>
+        Planets
+      </h1>
+      <input
+        placeholder="Search for planets"
+        value=""
+      />
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <div>
+                Name
+                <span>
+                  ⬆️
+                </span>
+              </div>
+            </th>
+            <th>
+              <div>
+                Population
+                <span>
+                  -
+                </span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a
+                data-discover="true"
+                href="/planets/"
+              >
+                Test planet
+              </a>
+            </td>
+            <td>
+              123,456
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
