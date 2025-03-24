@@ -8,7 +8,7 @@ interface UseQueryReturns<T> {
   data?: ApiCacheItem<T>
 }
 
-export default function useQueryByPath<T>(path?: string | string[]): UseQueryReturns<T> {
+export default function useQueryByPath<T>(path?: string): UseQueryReturns<T> {
   const {get, set} = useCache();
   const [error, setError] = useState<boolean>(false);
 
@@ -44,17 +44,12 @@ export default function useQueryByPath<T>(path?: string | string[]): UseQueryRet
         return;
       }
 
-      if (!Array.isArray(path)) {
-        await fetchDataByPath(path);
-        return;
-      }
-
-      await Promise.all(path.map(fetchDataByPath));
+      await fetchDataByPath(path);
     })();
   }, [path]);
 
   return path ? {
-    data: Array.isArray(path) ? path.map(get<T>) : get<T>(path), 
+    data: get<T>(path), 
     error,
   } : {};
 }
