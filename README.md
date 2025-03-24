@@ -39,6 +39,9 @@ https://swapi-noodling.netlify.app
   - ATM, it's just returning the default amount; some pagination would be handy here.
   - I can't see anything in the docs suggesting you can configure the per-page value.
   - Another UI option would be "infinite scrolling" but keep tracking of the "current" page can add complexity.
+- Make it look nicer ;-)
+  - Obviously there's no much styling here bar some basic approaches
+  - There are many options here, tailwind, styled-components etc. etc., notwithstanind a real-world Design System to work off.
 - More tests! Not 100%, but various business logic could be covered through "smart" Component testing
   - For now, there's some tests for the Utility functions
   - `App.test.tsx` at least covers basic rendering :-D
