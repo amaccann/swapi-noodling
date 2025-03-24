@@ -26,6 +26,7 @@ function App() {
 
           <Route path="/starships/:id?"  element={<StarshipsPage />} />
 
+          <Route path="/health" element={<p>Healthy</p>} />
           <Route
             path="*"
             element={<Navigate to="/planets" replace />}
