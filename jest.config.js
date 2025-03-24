@@ -9,7 +9,7 @@ export default {
   testEnvironment: 'jsdom',
   transform: {
     '^.+.(ts|tsx)?$': ['ts-jest',{
-      tsconfig: '<rootDir>/tsconfig.app.json'
+      tsconfig: '<rootDir>/tsconfig.json'
     }],
   },
   coverageThreshold: {
