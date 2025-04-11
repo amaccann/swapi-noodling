@@ -4,7 +4,7 @@ import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Planet } from '../types';
 import PlanetsHeader from './PlanetsHeader';
 import PlanetsBody from './PlanetsBody';
-import { Error, Input, SortableTable } from '../components';
+import { Error, Input, Page, SortableTable } from '../components';
 import PlanetDetail from './PlanetDetail';
 import useSearchByPath from '../utils/useSearchByPath';
 
@@ -23,9 +23,7 @@ export default function PlanetsPage() {
   }
 
   return (
-    <>
-      <h1>Planets</h1>
-
+    <Page title="Planets">
       <Input
         debounceBy={675}
         onChange={setSearchBy}
@@ -43,7 +41,7 @@ export default function PlanetsPage() {
           type="planets"
         />
       )}
-    </>
+    </Page>
   );
 }
 
