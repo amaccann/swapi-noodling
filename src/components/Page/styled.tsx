@@ -8,6 +8,7 @@ export const PageWrapper = styled.div({
   boxShadow: `3px 3px 3px 0 ${blueGray}`,
   '> div': {
     padding: 16,
+    paddingBottom: 0,
   },
 });
 
