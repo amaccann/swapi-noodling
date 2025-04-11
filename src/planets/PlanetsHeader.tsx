@@ -1,4 +1,4 @@
-import SortableTh from '../components/SortableTh';
+import {SortableTh} from '../components';
 import { SortableTableHeaderProps } from '../types';
 
 export default function PlanetsHeader({
