@@ -13,6 +13,7 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "types": ["node", "jest", "@testing-library/jest-dom"],
 
     /* Linting */

@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 
 import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Starship } from '../types';
-import { Error, Input, SortableTable } from '../components';
+import { Error, Input, Page, SortableTable } from '../components';
 import StarshipsBody from './StarshipsBody';
 import StarshipsHeader from './StarshipsHeader';
 import StarshipDetail from './StarshipDetail';
@@ -22,9 +22,7 @@ export default function StarshipsPage() {
   }
 
   return (
-    <>
-      <h1>Starships</h1>
-
+    <Page title="Starships">
       <Input
         debounceBy={675}
         onChange={setSearchBy}
@@ -42,7 +40,7 @@ export default function StarshipsPage() {
           type="starships"
         />
       )}
-    </>
+    </Page>
   );
 }
 

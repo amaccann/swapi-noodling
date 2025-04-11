@@ -1,24 +1,38 @@
-import {Routes, Route, Navigate, Link } from 'react-router';
-
-import styles from './App.module.css';
+import {Routes, Route, Navigate } from 'react-router';
 
 import { useCache } from './api/CacheProvider';
 import {PeoplesPage} from './peoples';
 import {PlanetsPage} from './planets';
 import { StarshipsPage } from './starships';
+import { AppWrapper, ContentWrapper, Nav, Sidebar } from './styled';
+import {Button, Logo, NavItem} from './components';
+
+import PlanetIcon from './icons/PlanetIcon';
+import WaveIcon from './icons/WaveIcon';
+import RocketIcon from './icons/RocketIcon';
+import { lightBlue } from './colors';
+
 
 function App() {
   const {clearAll} = useCache();
-  return (
-    <div className={styles.app}>
-      <nav className={styles.appNav}>
-        <Link data-testid="planets" to="/planets">Planets</Link>
-        <Link data-testid="people" to="/people">People</Link>
-        <Link data-testid="starships" to="/starships">Starships</Link>
-        <button onClick={() => clearAll()}>Clear cache</button>
-      </nav>
 
-      <div className={styles.appRoutes}>
+  return (
+    <AppWrapper>
+      <Sidebar>
+        <div style={{textAlign: 'center'}}>
+          <Logo color={lightBlue} size={150} />
+        </div>
+
+        <Nav>
+          <NavItem icon={PlanetIcon} testId="planets" to="/planets">Planets</NavItem>
+          <NavItem icon={WaveIcon} testId="people" to="/people">People</NavItem>
+          <NavItem icon={RocketIcon} testId="starships" to="/starships">Starships</NavItem>
+        </Nav>
+
+        <Button onClick={() => clearAll()} variant="danger">Clear cache?</Button>
+      </Sidebar>
+
+      <ContentWrapper>
         <Routes>
           <Route path="/planets/:id?"  element={<PlanetsPage />} />
 
@@ -32,8 +46,8 @@ function App() {
             element={<Navigate to="/planets" replace />}
           />
         </Routes> 
-      </div>
-    </div>
+      </ContentWrapper>
+    </AppWrapper>
   );
 }
 

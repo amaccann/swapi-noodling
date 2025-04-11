@@ -1,7 +1,7 @@
 import { useParams } from 'react-router';
 import { Collection, People } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
-import { Error, Input, SortableTable } from '../components';
+import { Error, Input, Page, SortableTable } from '../components';
 import PeoplesBody from './PeoplesBody';
 import PeoplesHeader from './PeoplesHeader';
 import PeopleDetail from './PeopleDetail';
@@ -21,9 +21,7 @@ export default function PeoplesPage() {
   }
   
   return (
-    <>
-      <h1>Characters</h1>
-  
+    <Page title="Characters">
       <Input
         debounceBy={675}
         onChange={setSearchBy}
@@ -41,7 +39,7 @@ export default function PeoplesPage() {
           type="people"
         />
       )}
-    </>
+    </Page>
   );
   
 }
