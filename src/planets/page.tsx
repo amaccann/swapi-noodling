@@ -30,6 +30,12 @@ export default function PlanetsPage() {
         placeholder={'Search for planets'}
         value={searchBy} />
 
+      <p>
+        The various planets featured from the Star Wars movies; click any of the planets' names
+        to read more information about that particular planet. Otherwise, use the search box 
+        provided to search for any planets across the movie series.
+      </p>
+
       {data?.loading ? (
         <p>Loading...</p>
       ) : (
