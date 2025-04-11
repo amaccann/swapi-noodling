@@ -1,9 +1,0 @@
-.sortableTh {
-  cursor: pointer;
-}
-
-.sortableTh div {
-  display: flex;
-  gap: 8px;
-  width: 100%;
-}

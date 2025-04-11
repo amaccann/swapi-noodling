@@ -1,8 +1,6 @@
 import { ReactNode } from 'react';
 import { SortDirection } from '../../types';
 
-import styles from './SortableTh.module.css';
-
 export default function SortableTh({
   active,
   children,
@@ -24,11 +22,11 @@ export default function SortableTh({
     className.push(`sortable-th__${sortDirection}`);
   }
 
-  return <th className={styles.sortableTh} onClick={onClick}>
+  return <th className="sortable" onClick={onClick}>
     <div>
       {children}
 
-      <span className={styles.sortableThArrow}>
+      <span >
         {widget}
       </span>
     </div>
