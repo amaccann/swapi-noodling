@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SortDirection } from '../types';
+import { SortDirection } from '../../types';
 
 import styles from './SortableTh.module.css';
 

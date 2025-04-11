@@ -1,8 +1,8 @@
 import { ReactNode, useMemo, useState } from 'react';
 
 import styles from './SortableTable.module.css';
-import { SortDirection, SortableTableHeaderProps } from '../types';
-import castTrueValue from '../utils/castTrueValue';
+import { SortDirection, SortableTableHeaderProps } from '../../types';
+import castTrueValue from '../../utils/castTrueValue';
 
 export default function SortableTable<T>({
   body: TableBody,
