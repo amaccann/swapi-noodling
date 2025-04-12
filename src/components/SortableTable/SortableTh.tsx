@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
 import { SortDirection } from '../../types';
 
+import { SortAscIcon, SortDescIcon, SortIndeterminateIcon } from '../../icons';
+import { blue, lightGray } from '../../colors';
+
 export default function SortableTh({
   active,
   children,
@@ -13,22 +16,20 @@ export default function SortableTh({
   sortDirection: SortDirection;
 }) {
   const className = ['sortable-th'];
-  let widget = '-';
+  let Widget = SortIndeterminateIcon;
   if (active) {
-    widget = sortDirection === SortDirection.Asc ? '⬆️' : '⬇️';
+    Widget = sortDirection === SortDirection.Asc ? SortAscIcon : SortDescIcon;
   }
 
   if (active) {
     className.push(`sortable-th__${sortDirection}`);
   }
 
-  return <th className="sortable" onClick={onClick}>
-    <div>
-      {children}
+  return <th data-active={active} className="sortable" onClick={onClick}>
+    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+      <span>{children}</span>
 
-      <span >
-        {widget}
-      </span>
+      <Widget color={active ? blue : lightGray} size={16} />
     </div>
   </th>;
 }

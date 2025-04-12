@@ -74,3 +74,8 @@ export interface SortableTableHeaderProps {
   sortBy: string;
   sortDirection: SortDirection
 }
+
+export type CommonIconProps = {
+  color: string;
+  size: number;
+};

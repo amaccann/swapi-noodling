@@ -31,7 +31,11 @@ export const Table = styled.table({
   th: {
     background: fadeGray,
     border: `1px solid ${fadeGray}`,
-    color: blue,
+    color: lightGray,
+
+    '&[data-active="true"]': {
+      color: blue,
+    },
 
     '&[class*="sortable"]': {
       cursor: 'pointer',

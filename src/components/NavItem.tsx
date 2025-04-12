@@ -15,6 +15,7 @@ const style = {
   transition: 'all 200ms ease-out',
   backgroundColor: white,
   color: darkBlue,
+  textDecoration: 'none',
 
   '&:hover': {
     backgroundColor: `${fadeBlue}50`,

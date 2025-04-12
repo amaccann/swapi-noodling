@@ -7,6 +7,15 @@ https://swapi-noodling.netlify.app
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5d1c21e-fcd4-4da3-a769-3c0edf7aeccf/deploy-status)](https://app.netlify.com/sites/swapi-noodling/deploys)
 
 
+### Development update xx-Apr-2025
+
+- Added some "proper" styling to the overall UI to make it look less like a website from the 1990s
+- Used `@emotion/react` for convenience
+- Was torn between it and `tailwind` but rather than hunting the various `tailwind` classes, it was quicker to bootstrap styled components. Poh-tay-to, Poh-tah-to.
+- **If I spent even _MORE_ time on this?**
+  - I'd probably switch to TailWind, though personally use to StyledComponents it's the more current approach to styling SPAs
+  - 
+
 
 ### Development notes
 
