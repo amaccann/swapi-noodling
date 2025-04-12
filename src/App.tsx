@@ -10,7 +10,7 @@ import {Button, Logo, NavItem} from './components';
 import PlanetIcon from './icons/PlanetIcon';
 import WaveIcon from './icons/WaveIcon';
 import RocketIcon from './icons/RocketIcon';
-import { lightBlue } from './colors';
+import { yellow } from './colors';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     <AppWrapper>
       <Sidebar>
         <div style={{textAlign: 'center'}}>
-          <Logo color={lightBlue} size={150} />
+          <Logo color={yellow} size={150} />
         </div>
 
         <nav>
