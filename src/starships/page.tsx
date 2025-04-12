@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 
 import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Starship } from '../types';
-import { Error, Input, Page, SortableTable } from '../components';
+import { Error, Input, Loader, Page, SortableTable } from '../components';
 import StarshipsBody from './StarshipsBody';
 import StarshipsHeader from './StarshipsHeader';
 import StarshipDetail from './StarshipDetail';
@@ -37,7 +37,7 @@ export default function StarshipsPage() {
         value={searchBy} />
 
       {data?.loading ? (
-        <p>Loading...</p>
+        <Loader style={{display: 'flex', alignItems: 'center', padding: 32}} />
       ) : (
         <SortableTable<Starship>
           body={StarshipsBody}

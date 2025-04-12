@@ -4,7 +4,7 @@ import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Planet } from '../types';
 import PlanetsHeader from './PlanetsHeader';
 import PlanetsBody from './PlanetsBody';
-import { Error, Input, Page, SortableTable } from '../components';
+import { Error, Input, Loader, Page, SortableTable } from '../components';
 import PlanetDetail from './PlanetDetail';
 import useSearchByPath from '../utils/useSearchByPath';
 
@@ -40,7 +40,7 @@ export default function PlanetsPage() {
         value={searchBy} />
 
       {data?.loading ? (
-        <p>Loading...</p>
+        <Loader style={{display: 'flex', alignItems: 'center', padding: 32}} />
       ) : (
         <SortableTable<Planet>
           body={PlanetsBody}

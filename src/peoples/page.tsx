@@ -1,7 +1,7 @@
 import { useParams } from 'react-router';
 import { Collection, People } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
-import { Error, Input, Page, SortableTable } from '../components';
+import { Error, Input, Loader, Page, SortableTable } from '../components';
 import PeoplesBody from './PeoplesBody';
 import PeoplesHeader from './PeoplesHeader';
 import PeopleDetail from './PeopleDetail';
@@ -37,7 +37,7 @@ export default function PeoplesPage() {
         value={searchBy} />
   
       {data?.loading ? (
-        <p>Loading...</p>
+        <Loader style={{display: 'flex', alignItems: 'center', padding: 32}} />
       ) : (
         <SortableTable<People>
           body={PeoplesBody}
