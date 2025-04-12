@@ -4,7 +4,7 @@ import { useCache } from './api/CacheProvider';
 import {PeoplesPage} from './peoples';
 import {PlanetsPage} from './planets';
 import { StarshipsPage } from './starships';
-import { AppWrapper, ContentWrapper, Nav, Sidebar } from './styled';
+import { AppWrapper, ContentWrapper, Sidebar } from './styled';
 import {Button, Logo, NavItem} from './components';
 
 import PlanetIcon from './icons/PlanetIcon';
@@ -23,11 +23,11 @@ function App() {
           <Logo color={lightBlue} size={150} />
         </div>
 
-        <Nav>
+        <nav>
           <NavItem icon={PlanetIcon} testId="planets" to="/planets">Planets</NavItem>
           <NavItem icon={WaveIcon} testId="people" to="/people">People</NavItem>
           <NavItem icon={RocketIcon} testId="starships" to="/starships">Starships</NavItem>
-        </Nav>
+        </nav>
 
         <Button onClick={() => clearAll()} variant="danger">Clear cache?</Button>
       </Sidebar>

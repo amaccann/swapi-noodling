@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { ButtonProps } from './types';
 import { blue, red, white } from '../../colors';
+import { MOBILE_BREAKPOINT } from '../../constants';
 
 export const StyledButton = styled.button<ButtonProps>(({variant}) => {
   const color = variant === 'danger' ? red : blue;
@@ -18,6 +19,10 @@ export const StyledButton = styled.button<ButtonProps>(({variant}) => {
 
     '&:hover': {
       filter: 'brightness(1.2)'
+    },
+    [MOBILE_BREAKPOINT]: {
+      padding: 4,
+      fontSize: '0.75rem',
     },
   };
 });

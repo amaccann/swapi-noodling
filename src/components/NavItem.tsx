@@ -1,6 +1,7 @@
 import { ElementType, ReactNode } from 'react';
 import { Link } from 'react-router';
 import { blue, blueGray, darkBlue, fadeBlue, lightBlue, white } from '../colors';
+import { MOBILE_BREAKPOINT } from '../constants';
 
 const style = {
   display: 'flex',
@@ -30,6 +31,22 @@ const style = {
 
   '&:first-of-type': {
     borderTop: `1px solid ${blueGray}`
+  },
+
+  [MOBILE_BREAKPOINT]: {
+    marginLeft: 0,
+    marginRight: 0,
+    padding: 4,
+    border: 0,
+
+    '&:first-of-type': {
+      borderTop: 0,
+    },
+  
+    svg: {
+      width: 16,
+      height: 16,
+    },
   },
 };
 

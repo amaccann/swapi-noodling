@@ -4,7 +4,7 @@ export default function Logo({color, size}: { color: string, size: number }) {
       version="1.0"
       width={size}
       height={size}
-      id="Layer_1"
+      id="app_logo"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink" 
 	    viewBox="0 0 302 232"

@@ -1,16 +1,25 @@
 import styled from '@emotion/styled';
 import { blueGray, fadeBlue, white } from './colors';
+import { MOBILE_BREAKPOINT } from './constants';
 
 export const AppWrapper = styled.div({
   width: '100vw',
   background: fadeBlue,
   display: 'flex',
-  height: '100vh'
+  height: '100vh',
+
+  [MOBILE_BREAKPOINT]: {
+    display: 'block',
+  },
 });
 
 export const ContentWrapper = styled.div({
   padding: 16,
   flex: 1,
+
+  [MOBILE_BREAKPOINT]: {
+    padding: 4,
+  },
 });
 
 export const Sidebar = styled.div({
@@ -24,9 +33,25 @@ export const Sidebar = styled.div({
   button: {
     marginTop: 'auto',
   },
-});
 
-export const Nav = styled.nav({
-  a: {
-  },
+  [MOBILE_BREAKPOINT]: {
+    padding: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+
+    '#app_logo': {
+      width: 32,
+      height: 32,
+    },
+
+    nav: {
+      display: 'flex',
+    },
+
+    button: {
+      marginTop: 0,
+      marginLeft: 16,
+    },
+  }
 });
