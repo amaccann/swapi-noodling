@@ -49,7 +49,13 @@ export const Table = styled.table({
       },
     },
   },
+
   [MOBILE_BREAKPOINT]: {
-    margin: '8px -8px'
+    margin: '8px -8px',
+    width: 'calc(100% + 16px)',
+
+    th: {
+      width: 'auto !important',
+    }
   },
 });
