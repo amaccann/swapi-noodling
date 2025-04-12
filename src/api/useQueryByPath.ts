@@ -5,7 +5,8 @@ import { useCache } from './CacheProvider';
 
 interface UseQueryReturns<T> {
   error?: boolean;
-  data?: ApiCacheItem<T>
+  fetchDataByPath: (p:string) => Promise<ApiCacheItem<T> | void>;
+  data?: ApiCacheItem<T>;
 }
 
 export default function useQueryByPath<T>(path?: string): UseQueryReturns<T> {
@@ -19,7 +20,8 @@ export default function useQueryByPath<T>(path?: string): UseQueryReturns<T> {
 
     const cached = get<T>(p);
     if (cached?.json) {
-      return console.log(`👻 cached ${p} data found`);
+      console.log(`👻 cached ${p} data found`);
+      return cached;
     }
 
     const updatedAt = new Date().toISOString();
@@ -29,13 +31,15 @@ export default function useQueryByPath<T>(path?: string): UseQueryReturns<T> {
     const {json, error} = await fetchApi(p);
     setError(Boolean(error));
 
-    set(p, {
+    const newCacheData = {
       ...cached,
       createdAt: !cached?.createdAt ? updatedAt : cached.createdAt,
       json,
       loading: false,
       updatedAt,
-    });
+    };
+    set(p, newCacheData);
+    return newCacheData;
   }
 
   useEffect(() => {
@@ -50,6 +54,9 @@ export default function useQueryByPath<T>(path?: string): UseQueryReturns<T> {
 
   return path ? {
     data: get<T>(path), 
+    fetchDataByPath,
     error,
-  } : {};
+  } : {
+    fetchDataByPath,
+  };
 }
