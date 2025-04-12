@@ -3,6 +3,7 @@ import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
+import { Page } from '../components';
 
 export default function PeopleDetail() {
   const {id} = useParams();
@@ -19,8 +20,7 @@ export default function PeopleDetail() {
   }
 
   return (
-    <div>
-      <h1>{person.name}</h1>
+    <Page title={person.name}>
       <p>
         <strong>Homeworld:</strong>
         <Link to={`/planets/${getIdFromUrl(homeworld?.url)}`}>
@@ -63,6 +63,6 @@ export default function PeopleDetail() {
       )  : (
         <p>{person?.name} does not appear in any films</p>
       )}
-    </div>
+    </Page>
   );
 }

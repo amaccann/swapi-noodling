@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
 import formatNumber from '../utils/formatNumber';
+import { Page } from '../components';
 
 export default function PlanetDetail() {
   const {id} = useParams();
@@ -17,8 +18,7 @@ export default function PlanetDetail() {
   }
 
   return (
-    <div>
-      <h1>{planet.name}</h1>
+    <Page title={planet.name}>
       <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
       <p><strong>Climate:</strong> {planet.climate}</p>
 
@@ -57,6 +57,6 @@ export default function PlanetDetail() {
         <p>{planet.name} has no notable residents</p>
       )}
 
-    </div>
+    </Page>
   );
 }

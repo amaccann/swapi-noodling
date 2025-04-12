@@ -2,6 +2,7 @@ import { Film,  Starship } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
 import {  useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
+import { Page } from '../components';
 
 export default function StarshipDetail() {
   const {id} = useParams();
@@ -14,8 +15,7 @@ export default function StarshipDetail() {
   }
 
   return (
-    <div>
-      <h1>{starship.name}</h1>
+    <Page title={starship.name}>
       <p><strong>Model:</strong> {starship.model}</p>
       <p><strong>Crew:</strong> {starship.crew}</p>
       <h4>Films:</h4>
@@ -26,6 +26,6 @@ export default function StarshipDetail() {
           </li>
         ))}
       </ul>
-    </div>
+    </Page>
   );
 }
