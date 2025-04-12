@@ -8,12 +8,14 @@ export default function SortableTh({
   active,
   children,
   onClick,
-  sortDirection
+  sortDirection,
+  style
 }: {
   active?: boolean;
   children: ReactNode;
   onClick: (() => void) | undefined;
   sortDirection: SortDirection;
+  style?: Record<string, string | number>
 }) {
   const className = ['sortable-th'];
   let Widget = SortIndeterminateIcon;
@@ -25,11 +27,16 @@ export default function SortableTh({
     className.push(`sortable-th__${sortDirection}`);
   }
 
-  return <th data-active={active} className="sortable" onClick={onClick}>
-    <div style={{display: 'flex', justifyContent: 'space-between'}}>
-      <span>{children}</span>
-
+  return <th
+    data-active={active}
+    className="sortable"
+    onClick={onClick}
+    style={style}
+  >
+    <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
       <Widget color={active ? blue : lightGray} size={16} />
+
+      <span>{children}</span>
     </div>
   </th>;
 }

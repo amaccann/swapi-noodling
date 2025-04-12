@@ -36,7 +36,7 @@ export default function PlanetsPage() {
         name="planets"
         onChange={setSearchBy}
         placeholder={'Search for planets'}
-        style={{marginTop: 8, width: '40%'}}
+        style={{marginTop: 8, width: '30%'}}
         value={searchBy} />
 
       {data?.loading ? (

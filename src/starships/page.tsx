@@ -33,7 +33,7 @@ export default function StarshipsPage() {
         name="starships"
         onChange={setSearchBy}
         placeholder={'Search for starships'}
-        style={{marginTop: 8, width: '45%'}}
+        style={{marginTop: 8, width: '30%'}}
         value={searchBy} />
 
       {data?.loading ? (
