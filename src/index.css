@@ -51,7 +51,8 @@ body {
   display: flex;
   place-items: center;
   color: #333;
-  font-family: "Roboto", sans-serif;
+  font-family: "Funnel Sans", sans-serif;
+  font-optical-sizing: auto;
   font-size: 0.875rem; /* 14px */
 }
 
