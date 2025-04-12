@@ -3,7 +3,7 @@ import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
-import { Page } from '../components';
+import { Page, RemoteDataList } from '../components';
 
 export default function PeopleDetail() {
   const {id} = useParams();
@@ -28,41 +28,30 @@ export default function PeopleDetail() {
         </Link>
       </p>
 
-      {starships.length  ? (
-        <>
-          <h4>Starships piloted:</h4>
-          <ul>
-            {starships.map((starshipUrl) => {
-              const id = getIdFromUrl(starshipUrl);
-              return (
-                <li key={starshipUrl}>
-                  <Link to={`/starships/${id}`}>
-                    <LabelByUrl<Starship> url={starshipUrl} />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </>
+      <RemoteDataList<Starship>
+        noDataMessage={`${person?.name} does not pilot any starships`}
+        urls={starships}
+        label="Starships piloted:"
+      >
+        {(starship: Starship) => {
+          const id = getIdFromUrl(starship.url);
+          return (
+            <Link to={`/starships/${id}`}>
+              <LabelByUrl<Starship> url={starship.url} />
+            </Link>
+          );
+        }}
+      </RemoteDataList>
 
-      ) : (
-        <p>{person?.name} does not pilot any starships</p>
-      )}
-
-      {films.length ? (
-        <>
-          <h4>Films:</h4>
-          <ul>
-            {(person?.films || []).map((filmUrl) => (
-              <li key={filmUrl}>
-                <LabelByUrl<Film> propKey="title" url={filmUrl} />
-              </li>
-            ))}
-          </ul>
-        </>
-      )  : (
-        <p>{person?.name} does not appear in any films</p>
-      )}
+      <RemoteDataList<Film> 
+        noDataMessage={`${person?.name} does not appear in any films`}
+        label="Films:"
+        urls={films}
+      >
+        {(film: Film) => (
+          <LabelByUrl<Film> propKey="title" url={film.url} />
+        )}
+      </RemoteDataList>
     </Page>
   );
 }

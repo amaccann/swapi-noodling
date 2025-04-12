@@ -9,11 +9,14 @@ https://swapi-noodling.netlify.app
 
 ### Development update xx-Apr-2025
 
-- Added some "proper" styling to the overall UI to make it look less like a website from the 1990s
-- Used `@emotion/react` for convenience.
-- Include some mobile friendly styling for smaller screen sizes
-  - the `Sidebar` nav, becomes a top navigation.
-- Was torn between it and `tailwind` but rather than hunting the various `tailwind` classes, it was quicker to bootstrap styled components. Poh-tay-to, Poh-tah-to.
+- Added `RemoteDataList` to handle sections rendering via multiple requests.
+  - The `RemoteDataList` component batches up the requests and uses `useTransition` to show a loading spinner 'til all requests are done.
+- Added an animated `Loader` spinner for page / section loading / pending states.
+- Added some "proper" styling to the overall UI to make it look less like a website from the 1990s!
+  - Used `@emotion/react` for convenience.
+  - Include some mobile friendly styling for smaller screen sizes
+    - the `Sidebar` nav, becomes a top navigation.
+  - Was torn between it and `tailwind` but rather than hunting the various `tailwind` classes, it was quicker to bootstrap styled components. Poh-tay-to, Poh-tah-to.
 - **If I spent even _MORE_ time on this?**
   - I'd probably switch to TailWind, though personally use to StyledComponents it's the more current approach to styling SPAs
   - 

@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
 import formatNumber from '../utils/formatNumber';
-import { Page } from '../components';
+import { Page, RemoteDataList } from '../components';
 
 export default function PlanetDetail() {
   const {id} = useParams();
@@ -22,41 +22,32 @@ export default function PlanetDetail() {
       <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
       <p><strong>Climate:</strong> {planet.climate}</p>
 
-      {films.length ? (
-        <>
-          <h4>Films:</h4>
-          <ul>
-            {films.map((filmUrl) => (
-              <li key={filmUrl}>
-                <LabelByUrl<Film> propKey="title" url={filmUrl} />
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
-        <p>{planet.name} does not appear in any films</p>
-      )}
+      <RemoteDataList<Film>
+        noDataMessage={`${planet.name} does not appear in any films`}
+        urls={films}
+        label="Films:"
+      >
+        {(film: Film) => {
+          return (
+            <LabelByUrl<Film> propKey="title" url={film.url} />
+          );
+        }}
+      </RemoteDataList>
 
-      {residents.length ? (
-        <>
-          <h4>Notable residents:</h4>
-          <ul>
-            {residents.map((residentUrl) => {
-              const id = getIdFromUrl(residentUrl);
-              return (
-                <li key={residentUrl}>
-                  <Link to={`/people/${id}`}>
-                    <LabelByUrl<People> url={residentUrl} />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      ) : (
-        <p>{planet.name} has no notable residents</p>
-      )}
+      <RemoteDataList<People> 
+        noDataMessage={`${planet.name} has no notable residents`}
+        urls={residents}
+        label="Notable residents:">
+        {(resident: People) => {
+          const id = getIdFromUrl(resident.url);
 
+          return (
+            <Link to={`/people/${id}`}>
+              <LabelByUrl<People> url={resident.url} />
+            </Link>
+          );
+        }}
+      </RemoteDataList>
     </Page>
   );
 }

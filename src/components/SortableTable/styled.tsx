@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { blue, blueGray, fadeBlue, fadeGray, lightGray } from '../../colors';
+import { MOBILE_BREAKPOINT } from '../../constants';
 
 export const Table = styled.table({
   margin: '16px -16px',
@@ -47,5 +48,8 @@ export const Table = styled.table({
         borderColor: blue,
       },
     },
+  },
+  [MOBILE_BREAKPOINT]: {
+    margin: '8px -8px'
   },
 });
