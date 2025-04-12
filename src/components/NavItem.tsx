@@ -63,7 +63,7 @@ export default function NavItem({
 }) {
   return (
     <Link data-testid={testId} to={to} css={style}>
-      <Icon color={lightBlue} size={24} />
+      <Icon color={lightBlue} size={20} />
       <span>{children}</span>
     </Link>
   ); 

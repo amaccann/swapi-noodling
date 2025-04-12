@@ -72,8 +72,12 @@ h3 {
   font-size: 1rem;
 }
 
-a {
+a, a:visited {
   color: #00A0FF;
+}
+
+a:hover {
+  color: #212F49;
 }
 
 ul {
