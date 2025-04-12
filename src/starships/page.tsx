@@ -23,10 +23,17 @@ export default function StarshipsPage() {
 
   return (
     <Page title="Starships">
+      <p>
+        Lists the various types of spaceships seen in the Star Wars movies; click any name of a specific ship
+        to read more information about that particular craft. Otherwise you can search using the Search input below.
+      </p>
       <Input
         debounceBy={675}
+        label="Star Wars ships"
+        name="starships"
         onChange={setSearchBy}
         placeholder={'Search for starships'}
+        style={{marginTop: 8, width: '45%'}}
         value={searchBy} />
 
       {data?.loading ? (

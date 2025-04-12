@@ -24,17 +24,20 @@ export default function PlanetsPage() {
 
   return (
     <Page title="Planets">
-      <Input
-        debounceBy={675}
-        onChange={setSearchBy}
-        placeholder={'Search for planets'}
-        value={searchBy} />
-
-      <p style={{marginTop: 8}}>
+      <p>
         The various planets featured from the Star Wars movies; click any of the planets' names
         to read more information about that particular planet. Otherwise, use the search box 
         provided to search for any planets across the movie series.
       </p>
+
+      <Input
+        debounceBy={675}
+        label="Star Wars planets"
+        name="planets"
+        onChange={setSearchBy}
+        placeholder={'Search for planets'}
+        style={{marginTop: 8, width: '40%'}}
+        value={searchBy} />
 
       {data?.loading ? (
         <p>Loading...</p>

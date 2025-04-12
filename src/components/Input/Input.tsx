@@ -1,6 +1,6 @@
 import { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
 
-import styles from './Input.module.css';
+import {InputField, Label} from './styled';
 
 type InputType = string | number;
 
@@ -11,15 +11,21 @@ type InputType = string | number;
  * @param value given for the Input
  * @returns 
  */
-export default function InputField({
+export default function Input({
   debounceBy,
+  label,
+  name,
   onChange,
   placeholder = '',
+  style,
   value: currentValue
 }: {
   debounceBy?: number,
+  label: string,
+  name: string,
   onChange: (value: InputType) => void,
   placeholder: string,
+  style?: Record<string, number|string>,
   value: InputType
 }) {
   const [value, setValue] = useState<InputType>(currentValue);
@@ -46,6 +52,14 @@ export default function InputField({
   }, []);
 
   return (
-    <input className={styles.input} onChange={onInputChange} placeholder={placeholder} value={value} />
+    <div style={style}>
+      <Label htmlFor={name}>{label}</Label>
+      <InputField
+        id={name}
+        name={name}
+        onChange={onInputChange}
+        placeholder={placeholder}
+        value={value} />
+    </div>
   );
 }
