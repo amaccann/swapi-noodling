@@ -2,78 +2,247 @@
 
 exports[`Main app portal renders app, taking snapshot 1`] = `
 <DocumentFragment>
-  <div>
-    <nav>
-      <a
-        data-discover="true"
-        data-testid="planets"
-        href="/planets"
+  <div
+    class="css-18chg77"
+  >
+    <div
+      class="css-19grm5i"
+    >
+      <div
+        style="text-align: center;"
       >
-        Planets
-      </a>
-      <a
-        data-discover="true"
-        data-testid="people"
-        href="/people"
+        <svg
+          height="96"
+          id="app_logo"
+          version="1.0"
+          viewBox="0 0 302 232"
+          width="96"
+          xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <path
+            d="M151,28.6l-15.9,17.7c5.6,8,7.7,17.6,7.7,22.5c-4.8-8.4-9.9-10.8-15.1-14.2l-10.2,11.4
+		c13.9,4.8,22.5,21.3,22.5,38.4c0,8.2-2.8,27.9-22.5,27v-0.1c-14.5-1.7-28.1-18.6-29.3-36.9s6.5-36.1,19.3-50.9h0
+		c-24.2,14.4-39.8,39.7-41.8,67.7c0,0.7-0.1,1.4-0.1,2.1l0,0c0,0.7-0.1,1.4-0.1,2.2c0,0.7,0,1.5,0,2.2c0,47.3,38.4,85.7,85.7,85.6
+		c47.3,0,85.6-38.3,85.6-85.6c0-2.2-0.1-4.4-0.2-6.6c-2.1-28-17.7-53.3-41.8-67.7h-0.1c12.8,14.8,20.6,32.6,19.4,50.9
+		s-14.8,35.2-29.3,36.9v0.1c-19.6,0.9-22.5-18.8-22.5-27c0-17.1,8.5-33.6,22.5-38.4l-10.3-11.4c-5.1,3.5-10.3,5.9-15.1,14.2
+		c0-4.8,2.1-14.5,7.7-22.5L151,28.6z"
+            id="path8305"
+            style="fill: #FFB430; width: 96px;"
+          />
+        </svg>
+      </div>
+      <nav>
+        <a
+          class="css-189449o"
+          data-discover="true"
+          data-testid="planets"
+          href="/planets"
+        >
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 16 16"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.34313 13.6569C1.78335 13.0971 1.32387 12.475 0.964684 11.8129C0.616724 12.3943 0.344087 12.943 0.180413 13.4311C0.0744537 13.7471 -0.0046342 14.0918 0.000211182 14.433C0.00512994 14.7793 0.101017 15.2121 0.444436 15.5556C0.787856 15.899 1.22074 15.9949 1.56705 15.9998C1.90818 16.0046 2.25291 15.9255 2.56888 15.8196C3.20464 15.6064 3.9433 15.2083 4.72317 14.6997C5.16617 14.4108 5.63715 14.0765 6.12819 13.7023C6.71718 13.8955 7.34639 14 8 14C11.3137 14 14 11.3137 14 8C14 7.34639 13.8955 6.71718 13.7023 6.12819C14.0765 5.63715 14.4108 5.16617 14.6997 4.72317C15.2083 3.9433 15.6064 3.20464 15.8196 2.56888C15.9255 2.25291 16.0046 1.90818 15.9998 1.56705C15.9949 1.22074 15.899 0.787856 15.5556 0.444436C15.2121 0.101017 14.7793 0.00512994 14.433 0.000211182C14.0918 -0.0046342 13.7471 0.0744537 13.4311 0.180413C12.943 0.344088 12.3943 0.616728 11.8129 0.964692C12.475 1.32388 13.0971 1.78336 13.6568 2.34314C13.3784 3.01413 13.0579 3.6038 12.6403 4.19604C12.6359 4.20221 12.6315 4.20838 12.6272 4.21457C11.7592 5.44256 10.5387 6.89539 9.07872 8.38692C8.8506 8.61996 8.62 8.85057 8.38695 9.07868C6.88789 10.546 5.42794 11.7714 4.19603 12.6402C3.60792 13.055 3.00258 13.3649 2.34313 13.6569Z"
+              fill="#80CFFF"
+            />
+            <path
+              d="M8 2C9.14392 2 10.2131 2.32012 11.1228 2.87567C10.2717 4.11121 8.95721 5.68369 7.32047 7.32043C5.6837 8.9572 4.11121 10.2717 2.87566 11.1227C2.32012 10.2131 2 9.14392 2 8C2 4.68629 4.68629 2 8 2Z"
+              fill="#80CFFF"
+            />
+          </svg>
+          <span>
+            Planets
+          </span>
+        </a>
+        <a
+          class="css-189449o"
+          data-discover="true"
+          data-testid="people"
+          href="/people"
+        >
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 16 16"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.00001 3C8.82844 3 9.50001 2.32843 9.50001 1.5C9.50001 0.671573 8.82844 0 8.00001 0C7.17158 0 6.50001 0.671573 6.50001 1.5C6.50001 2.32843 7.17158 3 8.00001 3Z"
+              fill="#80CFFF"
+            />
+            <path
+              d="M12 4V2H14V4C14 5.10457 13.1045 6 12 6H10.5454L10.9897 16H8.98773L8.76557 11H7.23421L7.01193 16H5.00995L5.42014 6.77308L3.29995 9.6L1.69995 8.4L4.99995 4H12Z"
+              fill="#80CFFF"
+            />
+          </svg>
+          <span>
+            People
+          </span>
+        </a>
+        <a
+          class="css-189449o"
+          data-discover="true"
+          data-testid="starships"
+          href="/starships"
+        >
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 16 16"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10 16L12 14V10L13.6569 8.34314C15.1571 6.84285 16 4.80802 16 2.68629V0H13.3137C11.192 0 9.15714 0.842855 7.65685 2.34315L6 4H2L0 6L10 16ZM10.5 7C11.3284 7 12 6.32843 12 5.5C12 4.67157 11.3284 4 10.5 4C9.67157 4 9 4.67157 9 5.5C9 6.32843 9.67157 7 10.5 7Z"
+              fill="#80CFFF"
+              fill-rule="evenodd"
+            />
+            <path
+              d="M4.9274 13.7558L2.24423 11.0726L0 15L1 16L4.9274 13.7558Z"
+              fill="#80CFFF"
+            />
+          </svg>
+          <span>
+            Starships
+          </span>
+        </a>
+      </nav>
+      <button
+        class="css-rhoxih"
       >
-        People
-      </a>
-      <a
-        data-discover="true"
-        data-testid="starships"
-        href="/starships"
-      >
-        Starships
-      </a>
-      <button>
-        Clear cache
+        Clear cache?
       </button>
-    </nav>
-    <div>
-      <h1>
-        Planets
-      </h1>
-      <input
-        placeholder="Search for planets"
-        value=""
-      />
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <div>
-                Name
-                <span>
-                  ⬆️
-                </span>
-              </div>
-            </th>
-            <th>
-              <div>
-                Population
-                <span>
-                  -
-                </span>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <a
-                data-discover="true"
-                href="/planets/"
-              >
-                Test planet
-              </a>
-            </td>
-            <td>
-              123,456
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    </div>
+    <div
+      class="css-10hbaxb"
+    >
+      <div
+        class="css-1pvk20r"
+      >
+        <h1
+          class="css-bcgeut"
+        >
+          Planets
+        </h1>
+        <div>
+          <p>
+            The various planets featured from the Star Wars movies; click any of the planets' names to read more information about that particular planet. Otherwise, use the search box provided to search for any planets across the movie series.
+          </p>
+          <div
+            style="margin-top: 8px; width: 30%;"
+          >
+            <label
+              class="css-11l2r7g"
+              for="planets"
+            >
+              Star Wars planets
+            </label>
+            <input
+              class="css-1kv2yzz"
+              id="planets"
+              name="planets"
+              placeholder="Search for planets"
+              value=""
+            />
+          </div>
+          <table
+            class="css-g6prc5"
+          >
+            <thead>
+              <tr>
+                <th
+                  class="sortable"
+                  data-active="true"
+                  style="width: 250px;"
+                >
+                  <div
+                    style="display: flex; align-items: center; gap: 8px;"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 5H3L3 16H5L5 5L8 5V4L4 0L0 4V5Z"
+                        fill="#00A0FF"
+                      />
+                      <path
+                        d="M16 6H10V8H16V6Z"
+                        fill="#00A0FF"
+                      />
+                      <path
+                        d="M10 10H14V12H10V10Z"
+                        fill="#00A0FF"
+                      />
+                      <path
+                        d="M12 14H10V16H12V14Z"
+                        fill="#00A0FF"
+                      />
+                    </svg>
+                    <span>
+                      Name
+                    </span>
+                  </div>
+                </th>
+                <th
+                  class="sortable"
+                  data-active="false"
+                >
+                  <div
+                    style="display: flex; align-items: center; gap: 8px;"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 0L2 6V7H14V6L8 0Z"
+                        fill="#CCCCCC"
+                      />
+                      <path
+                        d="M8 16L2 10V9H14V10L8 16Z"
+                        fill="#CCCCCC"
+                      />
+                    </svg>
+                    <span>
+                      Population
+                    </span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    data-discover="true"
+                    href="/planets/"
+                  >
+                    Test planet
+                  </a>
+                </td>
+                <td>
+                  123,456
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>
