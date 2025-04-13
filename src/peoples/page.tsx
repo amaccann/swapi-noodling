@@ -33,7 +33,7 @@ export default function PeoplesPage() {
         name="people"
         onChange={setSearchBy}
         placeholder={'Search for characters'}
-        style={{marginTop: 8, width: '30%'}}
+        style={{marginTop: 16, width: '30%'}}
         value={searchBy} />
   
       {data?.loading ? (
