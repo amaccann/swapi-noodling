@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { darkYellow, fadeGray, lightGray, lightYellow, yellow } from '../../colors';
 import { MOBILE_BREAKPOINT } from '../../constants';
 
+const LIST_BORDER = `1px solid ${lightGray}75`; 
+
 export const Wrapper = styled.div({
   borderTop: '1px solid #E9E9E9',
   marginTop: 16,
@@ -28,19 +30,33 @@ export const Title = styled.h4({
 });
 
 export const List = styled.ul({
-  background: fadeGray,
   margin: 0,
   listStyle: 'none',
-  border: `1px solid ${lightGray}75`,
-  borderRadius: 8,
 
   li: {
     padding: 8,
-    borderTop: `1px solid ${lightGray}75`,
+    background: fadeGray,
+    borderLeft: LIST_BORDER,
+    borderBottom: LIST_BORDER,
+    borderRight: LIST_BORDER,
+   
     '&:first-of-type': {
-      borderTop: 0,
+      borderTopLeftRadius: 8,
+      borderTopRightRadius: 8,
+      borderTop: LIST_BORDER,
+
     },
+    '&:last-of-type': {
+      borderBottomLeftRadius: 8,
+      borderBottomRightRadius: 8,
+    },
+
+    '&:nth-of-type(2n)': {
+      background: `${lightGray}20`,
+    },
+
   },
+
 });
 
 export const LoadingLabel = styled.div({
