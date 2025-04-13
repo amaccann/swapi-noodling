@@ -5,14 +5,12 @@ export default function ArrowLeftIcon({
   color,
   onClick = () => {},
   size,
-  ...rest
 }: {
   className?: string,
   color?: string,
   onClick?: (e: BaseSyntheticEvent) => void,
   size: number
 }) {
-  console.log('rest', rest);
   return (
     <svg 
       className={className}

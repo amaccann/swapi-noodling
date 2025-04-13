@@ -4,7 +4,7 @@ export {default as Input} from './Input';
 export {default as LabelByUrl} from './LabelByUrl';
 export {default as Loader} from './Loader';
 export {default as Logo} from './Logo';
-export {default as NavItem} from './NavItem';
+export {default as NavItem} from './NavItem/NavItem';
 export {default as Page} from './Page';
 export {default as RemoteDataList} from './RemoteDataList';
 export {default as SortableTable, SortableTh} from './SortableTable';
