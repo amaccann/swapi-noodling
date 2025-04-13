@@ -5,6 +5,7 @@ import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
 import formatNumber from '../utils/formatNumber';
 import { Page, RemoteDataList } from '../components';
+import { PageStrapline } from '../styled';
 
 export default function PlanetDetail() {
   const {id} = useParams();
@@ -19,8 +20,10 @@ export default function PlanetDetail() {
 
   return (
     <Page showBack title={planet.name}>
-      <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
-      <p><strong>Climate:</strong> {planet.climate}</p>
+      <PageStrapline>
+        <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
+        <p><strong>Climate:</strong> {planet.climate}</p>
+      </PageStrapline>
 
       <RemoteDataList<Film>
         noDataMessage={`${planet.name} does not appear in any films`}

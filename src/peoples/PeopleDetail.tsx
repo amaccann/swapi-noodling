@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
 import { Page, RemoteDataList } from '../components';
+import { PageStrapline } from '../styled';
 
 export default function PeopleDetail() {
   const {id} = useParams();
@@ -21,12 +22,14 @@ export default function PeopleDetail() {
 
   return (
     <Page showBack title={person.name}>
-      <p>
-        <strong>Homeworld:</strong>
-        <Link to={`/planets/${getIdFromUrl(homeworld?.url)}`}>
-          {homeworld?.name || ''}
-        </Link>
-      </p>
+      <PageStrapline>
+        <p>
+          <strong>Homeworld:</strong>
+          <Link to={`/planets/${getIdFromUrl(homeworld?.url)}`}>
+            {homeworld?.name || ''}
+          </Link>
+        </p>
+      </PageStrapline>
 
       <RemoteDataList<Starship>
         noDataMessage={`${person?.name} does not pilot any starships`}

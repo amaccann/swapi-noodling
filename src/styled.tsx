@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { blueGray, fadeBlue, white } from './colors';
+import { blueGray, darkYellow, fadeBlue, fadeYellow, white } from './colors';
 import { MOBILE_BREAKPOINT } from './constants';
 
 export const AppWrapper = styled.div({
@@ -53,5 +53,25 @@ export const Sidebar = styled.div({
       marginTop: 0,
       marginLeft: 16,
     },
+  }
+});
+
+export const PageStrapline = styled.div({
+  display: 'flex',
+  background: fadeYellow,
+
+  marginTop: -16,
+  marginLeft: -16,
+  marginRight: -16,
+
+  p: {
+    display: 'flex',
+    gap: 8,
+    padding: 16,
+    borderRight: `1px solid ${darkYellow}30`,
+  },
+
+  strong: {
+    color: darkYellow
   }
 });

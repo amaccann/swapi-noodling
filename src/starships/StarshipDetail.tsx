@@ -3,6 +3,7 @@ import useQueryByPath from '../api/useQueryByPath';
 import {  useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import { Page, RemoteDataList } from '../components';
+import { PageStrapline } from '../styled';
 
 export default function StarshipDetail() {
   const {id} = useParams();
@@ -16,8 +17,10 @@ export default function StarshipDetail() {
 
   return (
     <Page showBack title={starship.name}>
-      <p><strong>Model:</strong> {starship.model}</p>
-      <p><strong>Crew:</strong> {starship.crew}</p>
+      <PageStrapline>
+        <p><strong>Model:</strong> {starship.model}</p>
+        <p><strong>Crew:</strong> {starship.crew}</p>
+      </PageStrapline>
 
       <RemoteDataList<Film>
         label="Films"
