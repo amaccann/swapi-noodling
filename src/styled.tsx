@@ -73,5 +73,14 @@ export const PageStrapline = styled.div({
 
   strong: {
     color: darkYellow
-  }
+  },
+
+  [MOBILE_BREAKPOINT]: {
+    marginTop: -8,
+    marginLeft: -8,
+    marginRight: -8,
+    p: {
+      padding: 8,
+    },
+  },
 });

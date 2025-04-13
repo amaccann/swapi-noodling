@@ -7,20 +7,23 @@ https://swapi-noodling.netlify.app
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5d1c21e-fcd4-4da3-a769-3c0edf7aeccf/deploy-status)](https://app.netlify.com/sites/swapi-noodling/deploys)
 
 
-### Development update xx-Apr-2025
+### Development update 15-Apr-2025
 
 - Added `RemoteDataList` to handle sections rendering via multiple requests.
   - The `RemoteDataList` component batches up the requests and uses `useTransition` to show a loading spinner 'til all requests are done.
+  - This addresses an issue where, for instance, "Notable residents" had fractured loading.
 - Added an animated `Loader` spinner for page / section loading / pending states.
 - Added a "back" arrow for any given section's details page.
 - Added some "proper" styling to the overall UI to make it look less like a website from the 1990s!
   - Used `@emotion/react` for convenience.
-  - Include some mobile friendly styling for smaller screen sizes
+  - Was torn between Styled Components and `tailwind` but as I had been working with Styled Components in a personal project I'm working on & rather than hunting the various `tailwind` classes ... it was quicker to bootstrap styled components. _Poh-tay-to, Poh-tah-to._
+- Include some mobile friendly styling for smaller screen sizes
     - the `Sidebar` nav, becomes a top navigation.
-  - Was torn between it and `tailwind` but rather than hunting the various `tailwind` classes, it was quicker to bootstrap styled components. Poh-tay-to, Poh-tah-to.
+    - I chose `960px` as an arbitrary "mobile" breakpoint.
 - **If I spent even _MORE_ time on this?**
-  - I'd probably switch to TailWind, though personally use to StyledComponents it's the more current approach to styling SPAs
-  - 
+  - I'd probably switch to `tailwind` for more consensus, contemporary approach.
+  - Add pagination; still not there lol
+  - Would be cool if certain "trigger" words / names could be linked to a CDN so we could load (say) a picture of Luke Skywalker or somesuch. It's a very "dry" site otherwise.
 
 
 ### Development notes
