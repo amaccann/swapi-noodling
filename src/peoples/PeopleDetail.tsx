@@ -20,7 +20,7 @@ export default function PeopleDetail() {
   }
 
   return (
-    <Page title={person.name}>
+    <Page showBack title={person.name}>
       <p>
         <strong>Homeworld:</strong>
         <Link to={`/planets/${getIdFromUrl(homeworld?.url)}`}>

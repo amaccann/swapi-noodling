@@ -12,6 +12,7 @@ https://swapi-noodling.netlify.app
 - Added `RemoteDataList` to handle sections rendering via multiple requests.
   - The `RemoteDataList` component batches up the requests and uses `useTransition` to show a loading spinner 'til all requests are done.
 - Added an animated `Loader` spinner for page / section loading / pending states.
+- Added a "back" arrow for any given section's details page.
 - Added some "proper" styling to the overall UI to make it look less like a website from the 1990s!
   - Used `@emotion/react` for convenience.
   - Include some mobile friendly styling for smaller screen sizes

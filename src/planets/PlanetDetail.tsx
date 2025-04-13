@@ -18,7 +18,7 @@ export default function PlanetDetail() {
   }
 
   return (
-    <Page title={planet.name}>
+    <Page showBack title={planet.name}>
       <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
       <p><strong>Climate:</strong> {planet.climate}</p>
 

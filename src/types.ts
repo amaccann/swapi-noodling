@@ -4,6 +4,11 @@ export enum DataTypes {
   Starships = 'starships',
 };
 
+export enum Climates {
+  Arid = 'arid',
+  Tropical = 'tropical',
+}
+
 export type ApiCache = Record<string, ApiCacheItem<unknown>>;
 
 export interface ApiCacheItem<T> {

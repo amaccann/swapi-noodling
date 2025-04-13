@@ -15,7 +15,7 @@ export default function StarshipDetail() {
   }
 
   return (
-    <Page title={starship.name}>
+    <Page showBack title={starship.name}>
       <p><strong>Model:</strong> {starship.model}</p>
       <p><strong>Crew:</strong> {starship.crew}</p>
 
