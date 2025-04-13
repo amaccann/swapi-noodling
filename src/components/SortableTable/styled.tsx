@@ -15,17 +15,20 @@ export const Table = styled.table({
   },
 
   td: {
-    borderTop: `1px solid ${fadeGray}`
+    borderTop: `1px solid ${fadeGray}`,
   },
 
   tr: {
+    '&:nth-of-type(2n)': {
+      td: {
+        background: `${fadeGray}40`
+      },
+    },
+
     '&:hover': {
       td: {
         background: `${fadeBlue}50`,
       }
-    },
-    '&:last-of-type': {
-      td: {},
     },
   },
 
