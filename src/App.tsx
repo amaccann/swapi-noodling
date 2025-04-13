@@ -20,7 +20,7 @@ function App() {
     <AppWrapper>
       <Sidebar>
         <div style={{textAlign: 'center'}}>
-          <Logo color={yellow} size={150} />
+          <Logo color={yellow} size={96} />
         </div>
 
         <nav>

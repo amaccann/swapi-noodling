@@ -20,7 +20,7 @@ export default function Loader({
   const strokeWidth = (width / DEFAULT_VALUE) * 5;
 
   return (
-    <Wrapper style={style}>
+    <Wrapper className="loader" style={style}>
       <Icon width={width} height={width}>
         <SvgBox viewBox={viewBox}>
           <Track

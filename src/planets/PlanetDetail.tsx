@@ -25,7 +25,7 @@ export default function PlanetDetail() {
       <RemoteDataList<Film>
         noDataMessage={`${planet.name} does not appear in any films`}
         urls={films}
-        label="Films:"
+        label="Films"
       >
         {(film: Film) => {
           return (
@@ -37,7 +37,7 @@ export default function PlanetDetail() {
       <RemoteDataList<People> 
         noDataMessage={`${planet.name} has no notable residents`}
         urls={residents}
-        label="Notable residents:">
+        label="Notable residents">
         {(resident: People) => {
           const id = getIdFromUrl(resident.url);
 

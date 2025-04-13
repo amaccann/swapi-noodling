@@ -31,7 +31,7 @@ export default function PeopleDetail() {
       <RemoteDataList<Starship>
         noDataMessage={`${person?.name} does not pilot any starships`}
         urls={starships}
-        label="Starships piloted:"
+        label="Starships piloted"
       >
         {(starship: Starship) => {
           const id = getIdFromUrl(starship.url);
@@ -45,7 +45,7 @@ export default function PeopleDetail() {
 
       <RemoteDataList<Film> 
         noDataMessage={`${person?.name} does not appear in any films`}
-        label="Films:"
+        label="Films"
         urls={films}
       >
         {(film: Film) => (

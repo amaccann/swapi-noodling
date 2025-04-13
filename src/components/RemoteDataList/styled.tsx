@@ -43,6 +43,21 @@ export const List = styled.ul({
   },
 });
 
+export const LoadingLabel = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 8,
+  width: 'auto',
+  marginTop: 8,
+  color: lightGray,
+
+  '.loader': {
+    width: 'auto',
+    flexGrow: 'unset',
+    margin: 'unset',
+  },
+});
+
 export const NoData = styled.p({
   marginTop: 8,
   padding: 8,

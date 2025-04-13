@@ -20,7 +20,7 @@ export default function StarshipDetail() {
       <p><strong>Crew:</strong> {starship.crew}</p>
 
       <RemoteDataList<Film>
-        label="Films:"
+        label="Films"
         noDataMessage={`${starship.name} does not appear in any films`}
         urls={starship?.films}
       >

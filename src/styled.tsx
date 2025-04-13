@@ -24,7 +24,7 @@ export const ContentWrapper = styled.div({
 
 export const Sidebar = styled.div({
   padding: 8,
-  flexBasis: 200,
+  flexBasis: 175,
   background: white,
   display: 'flex',
   flexDirection: 'column',

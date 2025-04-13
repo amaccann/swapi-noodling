@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState, useTransition } from 'react';
 import useQueryByPath from '../../api/useQueryByPath';
 import Loader from '../Loader';
 import { ApiCacheItem } from '../../types';
-import { List, NoData, Title, Wrapper } from './styled';
+import { List, LoadingLabel, NoData, Title, Wrapper } from './styled';
 
 export default function RemoteDataList<T>({
   children,
@@ -37,9 +37,11 @@ export default function RemoteDataList<T>({
       <Title>{label}</Title>
 
       {isPending ? (
-        <div style={{padding: 8}}>
-          <Loader width={32} />
-        </div>
+        <LoadingLabel>
+          <Loader width={24} />
+
+          <em>Fetching {label.toLowerCase()}</em>
+        </LoadingLabel>
       ) : (
         data.length ? (
           <List>
