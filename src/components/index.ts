@@ -1,5 +1,6 @@
 export {default as Button} from './Button';
 export {default as Error} from './Error';
+export {default as Flex} from './Flex';
 export {default as Input} from './Input';
 export {default as LabelByUrl} from './LabelByUrl';
 export {default as Loader} from './Loader';

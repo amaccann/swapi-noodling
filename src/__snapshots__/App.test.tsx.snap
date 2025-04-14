@@ -3,10 +3,10 @@
 exports[`Main app portal renders app, taking snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="css-18chg77"
+    class="css-agygbo"
   >
     <div
-      class="css-19grm5i"
+      class="css-69exgs"
     >
       <div
         style="text-align: center;"
@@ -35,7 +35,8 @@ exports[`Main app portal renders app, taking snapshot 1`] = `
       </div>
       <nav>
         <a
-          class="css-189449o"
+          class="css-k5w90d"
+          data-active="true"
           data-discover="true"
           data-testid="planets"
           href="/planets"
@@ -61,7 +62,8 @@ exports[`Main app portal renders app, taking snapshot 1`] = `
           </span>
         </a>
         <a
-          class="css-189449o"
+          class="css-vkuzoh"
+          data-active="false"
           data-discover="true"
           data-testid="people"
           href="/people"
@@ -87,7 +89,8 @@ exports[`Main app portal renders app, taking snapshot 1`] = `
           </span>
         </a>
         <a
-          class="css-189449o"
+          class="css-vkuzoh"
+          data-active="false"
           data-discover="true"
           data-testid="starships"
           href="/starships"
@@ -137,7 +140,7 @@ exports[`Main app portal renders app, taking snapshot 1`] = `
             The various planets featured from the Star Wars movies; click any of the planets' names to read more information about that particular planet. Otherwise, use the search box provided to search for any planets across the movie series.
           </p>
           <div
-            style="margin-top: 8px; width: 30%;"
+            style="margin-top: 16px; width: 30%;"
           >
             <label
               class="css-11l2r7g"
@@ -154,7 +157,7 @@ exports[`Main app portal renders app, taking snapshot 1`] = `
             />
           </div>
           <table
-            class="css-g6prc5"
+            class="css-fmio0g"
           >
             <thead>
               <tr>

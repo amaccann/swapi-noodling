@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { darkYellow, fadeGray, lightGray, lightYellow, yellow } from '../../colors';
 import { MOBILE_BREAKPOINT } from '../../constants';
+import Flex from '../Flex';
 
 const LIST_BORDER = `1px solid ${lightGray}75`; 
 
@@ -59,8 +60,7 @@ export const List = styled.ul({
 
 });
 
-export const LoadingLabel = styled.div({
-  display: 'flex',
+export const LoadingLabel = styled(Flex)({
   alignItems: 'center',
   gap: 8,
   width: 'auto',
