@@ -10,23 +10,25 @@ import { PageStrapline } from '../styled';
 export default function PlanetDetail() {
   const {id} = useParams();
   const {data} = useQueryByPath<Planet>(`planets/${id}`);
-  const planet = data?.json;
+  const {json: planet, loading} = data || {};
   const films = planet?.films || [];
   const residents = planet?.residents || [];
   
-  if (!planet) {
-    return null;    
+  if (!loading && !planet) {
+    return null;
   }
 
+  const {climate, name, population} = planet || {};
+
   return (
-    <Page showBack title={planet.name}>
+    <Page loading={loading} showBack title={name!}>
       <PageStrapline>
-        <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
-        <p><strong>Climate:</strong> {planet.climate}</p>
+        <p><strong>Population:</strong> {formatNumber(population!)}</p>
+        <p><strong>Climate:</strong> {climate}</p>
       </PageStrapline>
 
       <RemoteDataList<People> 
-        noDataMessage={`${planet.name} has no notable residents`}
+        noDataMessage={`${name} has no notable residents`}
         urls={residents}
         label="Notable residents">
         {(resident: People) => {
@@ -42,7 +44,7 @@ export default function PlanetDetail() {
 
       <RemoteDataList<Film>
         asCard
-        noDataMessage={`${planet.name} does not appear in any films`}
+        noDataMessage={`${name} does not appear in any films`}
         urls={films}
         label="Films"
       >

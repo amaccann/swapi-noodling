@@ -1,33 +1,32 @@
-import { Film, People, Planet, Starship } from '../types';
+import { Film, People, Starship } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
 import { FilmDetails, Page, RemoteDataList } from '../components';
 import { PageStrapline } from '../styled';
+import Homeworld from './Homeworld';
 
 export default function PeopleDetail() {
   const {id} = useParams();
   const {data} = useQueryByPath<People>(`people/${id}`);
   
-  const person = data?.json;
-  const homeworldData = useQueryByPath<Planet>(person?.homeworld);
-  const homeworld = homeworldData?.data?.json;
-  const starships = person?.starships || [];
-  const films = person?.films || [];
+  const {json: person, loading} = data || {};
   
-  if (!person) {
+  if (!loading && !person) {
     return null;    
   }
 
+  const starships = person?.starships || [];
+  const films = person?.films || [];
+  const homeworld = person?.homeworld;
+
   return (
-    <Page showBack title={person.name}>
+    <Page loading={loading} showBack title={person?.name}>
       <PageStrapline>
         <p>
           <strong>Homeworld:</strong>
-          <Link to={`/planets/${getIdFromUrl(homeworld?.url)}`}>
-            {homeworld?.name || ''}
-          </Link>
+          <Homeworld homeworld={homeworld!} />
         </p>
       </PageStrapline>
 

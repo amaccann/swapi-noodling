@@ -1,14 +1,18 @@
 import { ReactNode } from 'react';
 import { BackIcon, PageWrapper, Title } from './styled';
 import { useNavigate } from 'react-router';
+import Loader from '../Loader';
+import Flex from '../Flex';
 
 export default function Page({
   children,
+  loading,
   showBack,
   title
 }: {
+  loading?: boolean,
   showBack?: boolean,
-  title: string;
+  title?: string;
   children: ReactNode;
 }) {
   const navigate = useNavigate();
@@ -19,13 +23,17 @@ export default function Page({
 
   return (
     <PageWrapper>
-      <Title>
+      <Title loading={loading}>
         {showBack ? <BackIcon onClick={onClickBack} size={32} /> : null}
-        {title}
+        {loading ? 'Fetching data' : title}
       </Title>
       
       <div>
-        {children}
+        {loading ? (
+          <Flex style={{padding: 16}}>
+            <Loader />
+          </Flex>
+        ) : children}
       </div>
     </PageWrapper>
   );

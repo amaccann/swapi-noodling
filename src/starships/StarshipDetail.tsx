@@ -7,25 +7,26 @@ import { PageStrapline } from '../styled';
 export default function StarshipDetail() {
   const {id} = useParams();
   const {data} = useQueryByPath<Starship>(`starships/${id}`);
+  const {json: starship, loading} = data || {};
   
-  const starship = data?.json;
-  
-  if (!starship) {
+  if (!loading && !starship) {
     return null;    
   }
 
+  const {crew, films = [], name, model} = starship || {};
+
   return (
-    <Page showBack title={starship.name}>
+    <Page loading={loading} showBack title={name}>
       <PageStrapline>
-        <p><strong>Model:</strong> {starship.model}</p>
-        <p><strong>Crew:</strong> {starship.crew}</p>
+        <p><strong>Model:</strong> {model}</p>
+        <p><strong>Crew:</strong> {crew}</p>
       </PageStrapline>
 
       <RemoteDataList<Film>
         asCard
         label="Films"
-        noDataMessage={`${starship.name} does not appear in any films`}
-        urls={starship?.films}
+        noDataMessage={`${name} does not appear in any films`}
+        urls={films}
       >
         {(film: Film) => <FilmDetails film={film} key={film.episode_id} />}
       </RemoteDataList>

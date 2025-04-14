@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { blue, darkBlue, lightBlue } from '../../colors';
+import { blue, darkBlue, gray, lightBlue, lightGray } from '../../colors';
 import { MOBILE_BREAKPOINT } from '../../constants';
 import { ArrowLeftIcon } from '../../icons';
 
@@ -18,19 +18,19 @@ export const PageWrapper = styled.div({
   },
 });
 
-export const Title = styled.h1({
+export const Title = styled.h1<{ loading?: boolean }>(({loading}) => ({
   display: 'flex',
   alignItems: 'center',
 
   borderBottom: '1px solid #e9e9e9',
   padding: '8px 16px',
-  color: darkBlue,
+  color: loading ? lightGray :  darkBlue,
 
   [MOBILE_BREAKPOINT]: {
     padding: 8,
     fontSize: '1.125rem',
   },
-});
+}));
 
 export const BackIcon = styled(ArrowLeftIcon)({
   cursor: 'pointer',
