@@ -3,7 +3,7 @@ import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
 import LabelByUrl from '../components/LabelByUrl';
 import getIdFromUrl from '../utils/getIdFromUrl';
-import { Page, RemoteDataList } from '../components';
+import { FilmDetails, Page, RemoteDataList } from '../components';
 import { PageStrapline } from '../styled';
 
 export default function PeopleDetail() {
@@ -46,14 +46,13 @@ export default function PeopleDetail() {
         }}
       </RemoteDataList>
 
-      <RemoteDataList<Film> 
+      <RemoteDataList<Film>
+        asCard
         noDataMessage={`${person?.name} does not appear in any films`}
         label="Films"
         urls={films}
       >
-        {(film: Film) => (
-          <LabelByUrl<Film> propKey="title" url={film.url} />
-        )}
+        {(film: Film) => <FilmDetails film={film} key={film.episode_id} />}
       </RemoteDataList>
     </Page>
   );

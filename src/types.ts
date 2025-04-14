@@ -21,6 +21,7 @@ export interface ApiCacheItem<T> {
 export interface Film {
   episode_id: number
   planets: string[]
+  release_date: string
   title: string
   url: string
 }

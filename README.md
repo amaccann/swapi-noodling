@@ -14,6 +14,7 @@ https://swapi-noodling.netlify.app
   - This addresses an issue where, for instance, "Notable residents" had fractured loading.
 - Added an animated `Loader` spinner for page / section loading / pending states.
 - Added a "back" arrow for any given section's details page.
+- Included each film's poster as a thumbnail, and a link off to the IMDB page thereof
 - Added some "proper" styling to the overall UI to make it look less like a website from the 1990s!
   - Used `@emotion/react` for convenience.
   - Was torn between Styled Components and `tailwind` but as I had been working with Styled Components in a personal project I'm working on & rather than hunting the various `tailwind` classes ... it was quicker to bootstrap styled components. _Poh-tay-to, Poh-tah-to._

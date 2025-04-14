@@ -1,7 +1,7 @@
 import { Film, People, Planet } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
-import LabelByUrl from '../components/LabelByUrl';
+import {FilmDetails, LabelByUrl} from '../components';
 import getIdFromUrl from '../utils/getIdFromUrl';
 import formatNumber from '../utils/formatNumber';
 import { Page, RemoteDataList } from '../components';
@@ -25,18 +25,6 @@ export default function PlanetDetail() {
         <p><strong>Climate:</strong> {planet.climate}</p>
       </PageStrapline>
 
-      <RemoteDataList<Film>
-        noDataMessage={`${planet.name} does not appear in any films`}
-        urls={films}
-        label="Films"
-      >
-        {(film: Film) => {
-          return (
-            <LabelByUrl<Film> propKey="title" url={film.url} />
-          );
-        }}
-      </RemoteDataList>
-
       <RemoteDataList<People> 
         noDataMessage={`${planet.name} has no notable residents`}
         urls={residents}
@@ -50,6 +38,15 @@ export default function PlanetDetail() {
             </Link>
           );
         }}
+      </RemoteDataList>
+
+      <RemoteDataList<Film>
+        asCard
+        noDataMessage={`${planet.name} does not appear in any films`}
+        urls={films}
+        label="Films"
+      >
+        {(film: Film) => <FilmDetails film={film} key={film.episode_id} />}
       </RemoteDataList>
     </Page>
   );

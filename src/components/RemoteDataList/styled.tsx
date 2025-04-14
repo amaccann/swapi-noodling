@@ -22,42 +22,63 @@ export const Wrapper = styled.div({
   [MOBILE_BREAKPOINT]: {
     marginLeft: -8,
     marginRight: -8,
+    padding: 8,
   },
 });
 
-export const Title = styled.h4({
+export const Title = styled.h3({
   marginTop: 0,
   marginBottom: 4,
 });
 
-export const List = styled.ul({
-  margin: 0,
-  listStyle: 'none',
+export const List = styled.ul<{ asCard?: boolean }>(({asCard}) => {
+  return {
+    margin: 0,
+    listStyle: 'none',
+    ...(asCard ? {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 16,
+    } : {}),
+  
+    li: {
+      padding: 8,
+      background: fadeGray,
 
-  li: {
-    padding: 8,
-    background: fadeGray,
-    borderLeft: LIST_BORDER,
-    borderBottom: LIST_BORDER,
-    borderRight: LIST_BORDER,
-   
-    '&:first-of-type': {
-      borderTopLeftRadius: 8,
-      borderTopRightRadius: 8,
-      borderTop: LIST_BORDER,
-
+      ...(asCard ? {
+        border: LIST_BORDER,
+        borderRadius: 8,
+        flexBasis: 'calc(25% - 32px)',
+      } : {
+        borderLeft: LIST_BORDER,
+        borderBottom: LIST_BORDER,
+        borderRight: LIST_BORDER,
+     
+        '&:first-of-type': {
+          borderTopLeftRadius: 8,
+          borderTopRightRadius: 8,
+          borderTop: LIST_BORDER,
+  
+        },
+        '&:last-of-type': {
+          borderBottomLeftRadius: 8,
+          borderBottomRightRadius: 8,
+        },
+  
+        '&:nth-of-type(2n)': {
+          background: `${lightGray}20`,
+        },
+      })
     },
-    '&:last-of-type': {
-      borderBottomLeftRadius: 8,
-      borderBottomRightRadius: 8,
-    },
-
-    '&:nth-of-type(2n)': {
-      background: `${lightGray}20`,
-    },
-
-  },
-
+    [MOBILE_BREAKPOINT]: asCard ? {
+      gap: 8,
+      flexDirection: 'column',
+      flexWrap: 'nowrap',
+      li: {
+        flexBasis: 'auto',
+      },
+    } : {}
+  };
 });
 
 export const LoadingLabel = styled(Flex)({

@@ -75,6 +75,7 @@ h3 {
 
 a, a:visited {
   color: #00A0FF;
+  text-decoration: none;
 }
 
 a:hover {

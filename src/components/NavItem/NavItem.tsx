@@ -20,7 +20,7 @@ export default function NavItem({
 
   return (
     <RouterLink
-      active={isActivePage}
+      data-active={isActivePage}
       data-testid={testId}
       to={to}>
       <Icon color={lightBlue} size={20} />

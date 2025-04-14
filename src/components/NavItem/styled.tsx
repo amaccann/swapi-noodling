@@ -3,7 +3,9 @@ import { Link } from 'react-router';
 import { blue, blueGray, darkBlue, fadeBlue, lightBlue, white } from '../../colors';
 import { MOBILE_BREAKPOINT } from '../../constants';
 
-export const RouterLink = styled(Link)(({active}: { active: boolean }) => {
+export const RouterLink = styled(Link)((props: { ['data-active']: boolean }) => {
+  const active = props['data-active'];
+
   return {
     display: 'flex',
     alignItems: 'center',

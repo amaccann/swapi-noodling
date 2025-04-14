@@ -5,11 +5,13 @@ import { ApiCacheItem } from '../../types';
 import { List, LoadingLabel, NoData, Title, Wrapper } from './styled';
 
 export default function RemoteDataList<T>({
+  asCard,
   children,
   noDataMessage,
   urls = [],
   label,
 }: {
+  asCard?: boolean,
   children: (data: T) => ReactNode,
   noDataMessage: string,
   urls: string[],
@@ -26,6 +28,8 @@ export default function RemoteDataList<T>({
       }
 
       const requests = await Promise.all(urls.map((url) => fetchDataByPath(url)));
+      console.log('urls', urls);
+      console.log('urls', requests);
       if(requests.length) {
         setData(requests.filter(Boolean).map((r) => ((r as ApiCacheItem<T>).json as T)));
       }
@@ -44,7 +48,7 @@ export default function RemoteDataList<T>({
         </LoadingLabel>
       ) : (
         data.length ? (
-          <List>
+          <List asCard={asCard}>
             {data.map((item: T, index: number) => {
               return (
                 <li key={index}>
