@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { blue, darkBlue, gray, lightBlue, lightGray } from '../../colors';
+import { blue, darkBlue, lightBlue, lightGray } from '../../colors';
 import { MOBILE_BREAKPOINT } from '../../constants';
 import { ArrowLeftIcon } from '../../icons';
 
