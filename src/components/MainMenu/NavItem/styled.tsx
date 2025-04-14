@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router';
-import { blue, blueGray, darkBlue, fadeBlue, lightBlue, white } from '../../colors';
-import { MOBILE_BREAKPOINT } from '../../constants';
+import { darkBlue, white } from '../../../colors';
+import { MOBILE_BREAKPOINT } from '../../../constants';
 
 export const RouterLink = styled(Link)((props: { ['data-active']: boolean }) => {
   const active = props['data-active'];
@@ -15,33 +15,31 @@ export const RouterLink = styled(Link)((props: { ['data-active']: boolean }) => 
     marginRight: -8,
     padding: '16px 8px',
   
-    borderBottom: `1px solid ${blueGray}`,
+    borderBottom: `1px solid ${darkBlue}35`,
     transition: 'all 200ms ease-out',
-    backgroundColor: active ? `${lightBlue}35` : white,
-    color: darkBlue,
+    color: `${white} !important`,
     textDecoration: 'none',
 
     ...(active ? {
       svg: {
         path: {
-          fill: `${blue} !important`
+          fill: `${white} !important`
         },
       }
     } : {}),
   
     '&:hover': {
-      backgroundColor: `${fadeBlue}50`,
-      color: blue,
+      backgroundColor: `${darkBlue}50`,
   
       svg: {
         path: {
-          fill: `${blue} !important`
+          fill: `${white} !important`
         },
       }
     },
   
     '&:first-of-type': {
-      borderTop: `1px solid ${blueGray}`
+      borderTop: `1px solid ${darkBlue}35`
     },
   
     [MOBILE_BREAKPOINT]: {

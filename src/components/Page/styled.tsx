@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
-import { blue, blueGray, darkBlue, lightBlue } from '../../colors';
+import { blue, darkBlue, lightBlue } from '../../colors';
 import { MOBILE_BREAKPOINT } from '../../constants';
 import { ArrowLeftIcon } from '../../icons';
 
 export const PageWrapper = styled.div({
   background: '#fff',
-  border: '1px solid #E9E9E9',
-  borderRadius: 10,
-  boxShadow: `3px 3px 3px 0 ${blueGray}`,
+  border: `1px solid ${lightBlue}90`,
+  borderRadius: 4,
+  boxShadow: `3px 3px 3px 0 ${blue}25`,
 
   '> div': {
     padding: 16,

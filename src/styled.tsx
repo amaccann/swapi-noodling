@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { blueGray, darkYellow, fadeBlue, fadeYellow, white } from './colors';
+import { darkYellow, fadeBlue, fadeYellow } from './colors';
 import { MOBILE_BREAKPOINT } from './constants';
 import { Flex } from './components';
 
@@ -20,39 +20,6 @@ export const ContentWrapper = styled.div({
   [MOBILE_BREAKPOINT]: {
     padding: 4,
   },
-});
-
-export const Sidebar = styled(Flex)({
-  padding: 8,
-  flexBasis: 175,
-  background: white,
-  flexDirection: 'column',
-  boxShadow: `3px 0 3px 0 ${blueGray}`,
- 
-  button: {
-    marginTop: 'auto',
-  },
-
-  [MOBILE_BREAKPOINT]: {
-    padding: 4,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
-
-    '#app_logo': {
-      width: 32,
-      height: 32,
-    },
-
-    nav: {
-      display: 'flex',
-    },
-
-    button: {
-      marginTop: 0,
-      marginLeft: 16,
-    },
-  }
 });
 
 export const PageStrapline = styled(Flex)({
