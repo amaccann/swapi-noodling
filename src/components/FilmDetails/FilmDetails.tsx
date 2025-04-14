@@ -18,7 +18,6 @@ const IMDB_IDS = [
 const getReleaseYear = (date: string): number => new Date(date).getFullYear();
 
 export default function FilmDetails({film}: { film: Film })  {
-  console.log('film', film);
   const {episode_id, release_date, title} = film;
   const releaseDate = release_date ? getReleaseYear(release_date) : UNKNOWN;
   const episode = romanize(episode_id);
