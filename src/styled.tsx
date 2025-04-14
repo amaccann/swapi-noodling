@@ -6,7 +6,7 @@ import { Flex } from './components';
 export const AppWrapper = styled(Flex)({
   width: '100vw',
   background: fadeBlue,
-  height: '100vh',
+  minHeight: '100vh',
 
   [MOBILE_BREAKPOINT]: {
     display: 'block',
