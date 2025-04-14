@@ -21,7 +21,7 @@ export default function PlanetDetail() {
   const {climate, name, population} = planet || {};
 
   return (
-    <Page loading={loading} showBack title={name!}>
+    <Page isLoading={loading} showBack title={name!}>
       <PageStrapline>
         <p><strong>Population:</strong> {formatNumber(population!)}</p>
         <p><strong>Climate:</strong> {climate}</p>

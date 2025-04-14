@@ -6,11 +6,11 @@ import Flex from '../Flex';
 
 export default function Page({
   children,
-  loading,
+  isLoading,
   showBack,
   title
 }: {
-  loading?: boolean,
+  isLoading?: boolean,
   showBack?: boolean,
   title?: string;
   children: ReactNode;
@@ -23,13 +23,13 @@ export default function Page({
 
   return (
     <PageWrapper>
-      <Title loading={loading}>
+      <Title isLoading={isLoading}>
         {showBack ? <BackIcon onClick={onClickBack} size={32} /> : null}
-        {loading ? 'Fetching data' : title}
+        {isLoading ? 'Fetching data' : title}
       </Title>
       
       <div>
-        {loading ? (
+        {isLoading ? (
           <Flex style={{padding: 16}}>
             <Loader />
           </Flex>

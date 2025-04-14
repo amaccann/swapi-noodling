@@ -16,7 +16,7 @@ export default function StarshipDetail() {
   const {crew, films = [], name, model} = starship || {};
 
   return (
-    <Page loading={loading} showBack title={name}>
+    <Page isLoading={loading} showBack title={name}>
       <PageStrapline>
         <p><strong>Model:</strong> {model}</p>
         <p><strong>Crew:</strong> {crew}</p>

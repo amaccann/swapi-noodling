@@ -22,7 +22,7 @@ export default function PeopleDetail() {
   const homeworld = person?.homeworld;
 
   return (
-    <Page loading={loading} showBack title={person?.name}>
+    <Page isLoading={loading} showBack title={person?.name}>
       <PageStrapline>
         <p>
           <strong>Homeworld:</strong>

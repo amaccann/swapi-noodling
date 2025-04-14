@@ -18,13 +18,13 @@ export const PageWrapper = styled.div({
   },
 });
 
-export const Title = styled.h1<{ loading?: boolean }>(({loading}) => ({
+export const Title = styled.h1<{ isLoading?: boolean }>(({isLoading}) => ({
   display: 'flex',
   alignItems: 'center',
 
   borderBottom: '1px solid #e9e9e9',
   padding: '8px 16px',
-  color: loading ? lightGray :  darkBlue,
+  color: isLoading ? lightGray :  darkBlue,
 
   [MOBILE_BREAKPOINT]: {
     padding: 8,
