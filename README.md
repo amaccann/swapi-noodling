@@ -9,23 +9,23 @@ https://swapi-noodling.netlify.app
 
 ### Development update 15-Apr-2025
 
+- Added some animated `Loader` spinners for page / section loading / pending states. Should make the transition more apparent.
+  - If something like `Next.js` was used we could use Streaming to load parts of the pages more seamlessly.
 - Added `RemoteDataList` to handle sections rendering via multiple requests.
   - The `RemoteDataList` component batches up the requests and uses `useTransition` to show a loading spinner 'til all requests are done.
-  - This addresses an issue where, for instance, "Notable residents" had fractured loading.
-- Added an animated `Loader` spinner for page / section loading / pending states.
+  - This addresses an issue where, for instance, "Notable residents" had fractured loading, with patchy loading-in of various details
 - Added a "back" arrow for any given section's details page.
-- Included each film's poster as a thumbnail, and a link off to the IMDB page thereof
-- Added some "proper" styling to the overall UI to make it look less like a website from the 1990s!
+- Included each film's poster as a thumbnail, and a link off to the IMDB page thereof.
+- **Added some "proper" styling to the overall UI to make it look less like a website from the 1990s!**
   - Used `@emotion/react` for convenience.
   - Was torn between Styled Components and `tailwind` but as I had been working with Styled Components in a personal project I'm working on & rather than hunting the various `tailwind` classes ... it was quicker to bootstrap styled components. _Poh-tay-to, Poh-tah-to._
-- Include some mobile friendly styling for smaller screen sizes
+  - Included some basic mobile-friendly styling for smaller screen sizes
     - the `Sidebar` nav, becomes a top navigation.
-    - I chose `960px` as an arbitrary "mobile" breakpoint.
+    - I chose `960px` as an arbitrary "mobile" breakpoint. YMMV.
 - **If I spent even _MORE_ time on this?**
   - I'd probably switch to `tailwind` for more consensus, contemporary approach.
-  - Add pagination; still not there lol
-  - Would be cool if certain "trigger" words / names could be linked to a CDN so we could load (say) a picture of Luke Skywalker or somesuch. It's a very "dry" site otherwise.
-
+  - Add pagination; still not there lol but an obvious functional gap!
+  - The mobile styling could do with a little more finessing.  
 
 ### Development notes
 
