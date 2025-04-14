@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from 'react-router';
 import { useCache } from '../../api/CacheProvider';
 import { white } from '../../colors';
 import { PlanetIcon, RocketIcon } from '../../icons';
@@ -9,6 +10,17 @@ import { Sidebar } from './styled';
 
 export default function MainMenu() {
   const {clearAll} = useCache();
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const onClickClear = () => {
+    clearAll();
+
+    const [root, id] = location.pathname.replace(/^\//, '').split('/');
+    if (id) {
+      navigate(`/${root}`);
+    }
+  };
 
   return (
     <Sidebar>
@@ -24,7 +36,7 @@ export default function MainMenu() {
 
       <Button
         fontSize="0.75rem"
-        onClick={() => clearAll()}
+        onClick={onClickClear}
         variant="primary-inverse">
           Clear cache
       </Button>
