@@ -1,10 +1,10 @@
 import {Circle, Icon, SvgBox, Track, Wrapper} from './styled';
-import { gray, red } from '../../colors';
+import { blue, gray } from '../../colors';
 
 const DEFAULT_VALUE = 50;
 
 export default function Loader({
-  innerColor = red,
+  innerColor = blue,
   outerColor = gray,
   style = {},
   width = DEFAULT_VALUE,
