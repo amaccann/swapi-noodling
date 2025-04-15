@@ -4,7 +4,7 @@ import { MOBILE_BREAKPOINT } from './constants';
 import { Flex } from './components';
 
 export const AppWrapper = styled(Flex)({
-  width: '100vw',
+  // width: '100vw',
   background: fadeBlue,
   minHeight: '100vh',
 

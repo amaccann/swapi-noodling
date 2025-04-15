@@ -9,17 +9,17 @@ https://swapi-noodling.netlify.app
 
 ### Development update 15-Apr-2025
 
-- Added some animated `Loader` spinners for page / section loading / pending states. Should make the transition more apparent.
+- Added some animated `Loader` spinners for page / section loading / pending states. Should make data transitions more apparent, the UX more organic.
   - If something like `Next.js` was used we could use Streaming to load parts of the pages more seamlessly.
 - Added `RemoteDataList` to handle sections rendering via multiple requests.
   - The `RemoteDataList` component batches up the requests and uses `useTransition` to show a loading spinner 'til all requests are done.
   - This addresses an issue where, for instance, "Notable residents" had fractured loading, with patchy loading-in of various details
-- Added a "back" arrow for any given section's details page.
+- Added a "back" arrow for any given section's details page. Returns the user to the previous page.
 - Included each film's poster as a thumbnail, and a link off to the IMDB page thereof.
 - **Added some "proper" styling to the overall UI to make it look less like a website from the 1990s!**
   - Used `@emotion/react` for convenience.
-  - Was torn between Styled Components and `tailwind` but as I had been working with Styled Components in a personal project I'm working on & rather than hunting the various `tailwind` classes ... it was quicker to bootstrap styled components. _Poh-tay-to, Poh-tah-to._
-  - Included some basic mobile-friendly styling for smaller screen sizes
+  - Was torn between Styled Components and `tailwind` but went with Styled Components as I'm using it in a personal project I'm working on ATM & rather than hunting the various `tailwind` classes. _Poh-tay-to, Poh-tah-to._
+  - Included some basic mobile-friendly styling for smaller screen sizes.
     - the `Sidebar` nav, becomes a top navigation.
     - I chose `960px` as an arbitrary "mobile" breakpoint. YMMV.
 - **If I spent even _MORE_ time on this?**

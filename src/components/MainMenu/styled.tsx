@@ -31,7 +31,7 @@ export const Sidebar = styled(Flex)({
 
     button: {
       marginTop: 0,
-      marginLeft: 16,
+      marginLeft: 'auto',
     },
   }
 });
