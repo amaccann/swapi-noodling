@@ -1,62 +1,55 @@
 import { Film, People, Planet } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
 import { Link, useParams } from 'react-router';
-import LabelByUrl from '../components/LabelByUrl';
+import {FilmDetails, LabelByUrl} from '../components';
 import getIdFromUrl from '../utils/getIdFromUrl';
 import formatNumber from '../utils/formatNumber';
+import { Page, RemoteDataList } from '../components';
+import { PageStrapline } from '../styled';
 
 export default function PlanetDetail() {
   const {id} = useParams();
   const {data} = useQueryByPath<Planet>(`planets/${id}`);
-  const planet = data?.json;
+  const {json: planet, loading} = data || {};
   const films = planet?.films || [];
   const residents = planet?.residents || [];
   
-  if (!planet) {
-    return null;    
+  if (!loading && !planet) {
+    return null;
   }
 
+  const {climate, name, population} = planet || {};
+
   return (
-    <div>
-      <h1>{planet.name}</h1>
-      <p><strong>Population:</strong> {formatNumber(planet.population)}</p>
-      <p><strong>Climate:</strong> {planet.climate}</p>
+    <Page isLoading={loading} showBack title={name!}>
+      <PageStrapline>
+        <p><strong>Population:</strong> {formatNumber(population!)}</p>
+        <p><strong>Climate:</strong> {climate}</p>
+      </PageStrapline>
 
-      {films.length ? (
-        <>
-          <h4>Films:</h4>
-          <ul>
-            {films.map((filmUrl) => (
-              <li key={filmUrl}>
-                <LabelByUrl<Film> propKey="title" url={filmUrl} />
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
-        <p>{planet.name} does not appear in any films</p>
-      )}
+      <RemoteDataList<People> 
+        noDataMessage={`${name} has no notable residents`}
+        urls={residents}
+        label="Notable residents">
+        {(resident: People) => {
+          const id = getIdFromUrl(resident.url);
 
-      {residents.length ? (
-        <>
-          <h4>Notable residents:</h4>
-          <ul>
-            {residents.map((residentUrl) => {
-              const id = getIdFromUrl(residentUrl);
-              return (
-                <li key={residentUrl}>
-                  <Link to={`/people/${id}`}>
-                    <LabelByUrl<People> url={residentUrl} />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      ) : (
-        <p>{planet.name} has no notable residents</p>
-      )}
+          return (
+            <Link to={`/people/${id}`}>
+              <LabelByUrl<People> url={resident.url} />
+            </Link>
+          );
+        }}
+      </RemoteDataList>
 
-    </div>
+      <RemoteDataList<Film>
+        asCard
+        noDataMessage={`${name} does not appear in any films`}
+        urls={films}
+        label="Films"
+      >
+        {(film: Film) => <FilmDetails film={film} key={film.episode_id} />}
+      </RemoteDataList>
+    </Page>
   );
 }

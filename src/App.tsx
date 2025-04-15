@@ -1,24 +1,17 @@
-import {Routes, Route, Navigate, Link } from 'react-router';
+import {Routes, Route, Navigate } from 'react-router';
 
-import styles from './App.module.css';
-
-import { useCache } from './api/CacheProvider';
 import {PeoplesPage} from './peoples';
 import {PlanetsPage} from './planets';
 import { StarshipsPage } from './starships';
+import { AppWrapper, ContentWrapper } from './styled';
+import {MainMenu } from './components';
 
 function App() {
-  const {clearAll} = useCache();
   return (
-    <div className={styles.app}>
-      <nav className={styles.appNav}>
-        <Link data-testid="planets" to="/planets">Planets</Link>
-        <Link data-testid="people" to="/people">People</Link>
-        <Link data-testid="starships" to="/starships">Starships</Link>
-        <button onClick={() => clearAll()}>Clear cache</button>
-      </nav>
+    <AppWrapper>
+      <MainMenu />
 
-      <div className={styles.appRoutes}>
+      <ContentWrapper>
         <Routes>
           <Route path="/planets/:id?"  element={<PlanetsPage />} />
 
@@ -32,8 +25,8 @@ function App() {
             element={<Navigate to="/planets" replace />}
           />
         </Routes> 
-      </div>
-    </div>
+      </ContentWrapper>
+    </AppWrapper>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router';
 import { Collection, People } from '../types';
 import useQueryByPath from '../api/useQueryByPath';
-import { Error, Input, SortableTable } from '../components';
+import { Error, Input, Loader, Page, SortableTable } from '../components';
 import PeoplesBody from './PeoplesBody';
 import PeoplesHeader from './PeoplesHeader';
 import PeopleDetail from './PeopleDetail';
@@ -21,17 +21,23 @@ export default function PeoplesPage() {
   }
   
   return (
-    <>
-      <h1>Characters</h1>
-  
+    <Page title="Characters">
+      <p>
+        The various characters and creatures that featured in the Star Wars movies; click any of the characters' names
+        to read more information about that particular character. Otherwise, use the search box to search for a character.
+      </p>
+
       <Input
         debounceBy={675}
+        label="Star Wars characters"
+        name="people"
         onChange={setSearchBy}
         placeholder={'Search for characters'}
+        style={{marginTop: 16, width: '30%'}}
         value={searchBy} />
   
       {data?.loading ? (
-        <p>Loading...</p>
+        <Loader style={{display: 'flex', alignItems: 'center', padding: 32}} />
       ) : (
         <SortableTable<People>
           body={PeoplesBody}
@@ -41,7 +47,7 @@ export default function PeoplesPage() {
           type="people"
         />
       )}
-    </>
+    </Page>
   );
   
 }

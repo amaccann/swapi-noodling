@@ -1,4 +1,4 @@
-import SortableTh from '../components/SortableTh';
+import {SortableTh} from '../components';
 import { SortableTableHeaderProps } from '../types';
 
 export default function PeoplesHeader({
@@ -12,7 +12,8 @@ export default function PeoplesHeader({
         <SortableTh
           active={sortBy === 'name'}
           sortDirection={sortDirection}
-          onClick={onClick('name')}>Name</SortableTh>
+          onClick={onClick('name')}
+          style={{width: 250}}>Name</SortableTh>
         <SortableTh
           active={sortBy === 'homeworld'}
           sortDirection={sortDirection}

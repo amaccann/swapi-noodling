@@ -1,8 +1,8 @@
 import { ReactNode, useMemo, useState } from 'react';
 
-import styles from './SortableTable.module.css';
-import { SortDirection, SortableTableHeaderProps } from '../types';
-import castTrueValue from '../utils/castTrueValue';
+import { SortDirection, SortableTableHeaderProps } from '../../types';
+import castTrueValue from '../../utils/castTrueValue';
+import { Table } from './styled';
 
 export default function SortableTable<T>({
   body: TableBody,
@@ -50,7 +50,7 @@ export default function SortableTable<T>({
 
   return (
     <>
-      <table className={styles.table}>
+      <Table>
         <TableHeader
           onClick={onClickSortableHeader}
           sortBy={sortBy}
@@ -68,7 +68,7 @@ export default function SortableTable<T>({
             </tr>
           </tbody>
         )}
-      </table>
+      </Table>
     </>
     
   );

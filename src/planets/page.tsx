@@ -4,7 +4,7 @@ import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Planet } from '../types';
 import PlanetsHeader from './PlanetsHeader';
 import PlanetsBody from './PlanetsBody';
-import { Error, Input, SortableTable } from '../components';
+import { Error, Input, Loader, Page, SortableTable } from '../components';
 import PlanetDetail from './PlanetDetail';
 import useSearchByPath from '../utils/useSearchByPath';
 
@@ -23,17 +23,24 @@ export default function PlanetsPage() {
   }
 
   return (
-    <>
-      <h1>Planets</h1>
+    <Page title="Planets">
+      <p>
+        The various planets featured from the Star Wars movies; click any of the planets' names
+        to read more information about that particular planet. Otherwise, use the search box 
+        provided to search for any planets across the movie series.
+      </p>
 
       <Input
         debounceBy={675}
+        label="Star Wars planets"
+        name="planets"
         onChange={setSearchBy}
         placeholder={'Search for planets'}
+        style={{marginTop: 16, width: '30%'}}
         value={searchBy} />
 
       {data?.loading ? (
-        <p>Loading...</p>
+        <Loader style={{display: 'flex', alignItems: 'center', padding: 32}} />
       ) : (
         <SortableTable<Planet>
           body={PlanetsBody}
@@ -43,7 +50,7 @@ export default function PlanetsPage() {
           type="planets"
         />
       )}
-    </>
+    </Page>
   );
 }
 

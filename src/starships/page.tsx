@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 
 import useQueryByPath from '../api/useQueryByPath';
 import { Collection, Starship } from '../types';
-import { Error, Input, SortableTable } from '../components';
+import { Error, Input, Loader, Page, SortableTable } from '../components';
 import StarshipsBody from './StarshipsBody';
 import StarshipsHeader from './StarshipsHeader';
 import StarshipDetail from './StarshipDetail';
@@ -22,17 +22,22 @@ export default function StarshipsPage() {
   }
 
   return (
-    <>
-      <h1>Starships</h1>
-
+    <Page title="Starships">
+      <p>
+        Lists the various types of spaceships seen in the Star Wars movies; click any name of a specific ship
+        to read more information about that particular craft. Otherwise you can search using the Search input below.
+      </p>
       <Input
         debounceBy={675}
+        label="Star Wars ships"
+        name="starships"
         onChange={setSearchBy}
         placeholder={'Search for starships'}
+        style={{marginTop: 16, width: '30%'}}
         value={searchBy} />
 
       {data?.loading ? (
-        <p>Loading...</p>
+        <Loader style={{display: 'flex', alignItems: 'center', padding: 32}} />
       ) : (
         <SortableTable<Starship>
           body={StarshipsBody}
@@ -42,7 +47,7 @@ export default function StarshipsPage() {
           type="starships"
         />
       )}
-    </>
+    </Page>
   );
 }
 

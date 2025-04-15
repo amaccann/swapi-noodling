@@ -4,6 +4,11 @@ export enum DataTypes {
   Starships = 'starships',
 };
 
+export enum Climates {
+  Arid = 'arid',
+  Tropical = 'tropical',
+}
+
 export type ApiCache = Record<string, ApiCacheItem<unknown>>;
 
 export interface ApiCacheItem<T> {
@@ -16,6 +21,7 @@ export interface ApiCacheItem<T> {
 export interface Film {
   episode_id: number
   planets: string[]
+  release_date: string
   title: string
   url: string
 }
@@ -74,3 +80,8 @@ export interface SortableTableHeaderProps {
   sortBy: string;
   sortDirection: SortDirection
 }
+
+export type CommonIconProps = {
+  color: string;
+  size: number;
+};

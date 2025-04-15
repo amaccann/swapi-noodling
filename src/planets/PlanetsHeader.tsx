@@ -1,4 +1,4 @@
-import SortableTh from '../components/SortableTh';
+import {SortableTh} from '../components';
 import { SortableTableHeaderProps } from '../types';
 
 export default function PlanetsHeader({
@@ -12,7 +12,8 @@ export default function PlanetsHeader({
         <SortableTh
           onClick={onClick('name')}
           active={sortBy === 'name'}
-          sortDirection={sortDirection}>Name</SortableTh>
+          sortDirection={sortDirection}
+          style={{width: 250}}>Name</SortableTh>
         <SortableTh
           active={sortBy === 'population'}
           sortDirection={sortDirection}
