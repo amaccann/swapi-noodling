@@ -24,6 +24,8 @@ https://swapi-noodling.netlify.app
     - I chose `960px` as an arbitrary "mobile" breakpoint. YMMV.
 - **If I spent even _MORE_ time on this?**
   - I'd probably switch to `tailwind` for more consensus, contemporary approach.
+  - Automatically clear the cache if it notices there was a new "release"
+    - This could be easily done if I simply stored the git SHA in the API cache, then compared it with the value in `process.env.[]`
   - Add pagination; still not there lol but an obvious functional gap!
   - The mobile styling could do with a little more finessing.  
 
