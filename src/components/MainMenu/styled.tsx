@@ -9,9 +9,12 @@ export const Sidebar = styled(Flex)({
   background: blue,
   flexDirection: 'column',
   boxShadow: `inset -3px 0 4px 0 ${darkBlue}30`,
+  position: 'relative',
  
   button: {
     marginTop: 'auto',
+    position: 'sticky',
+    bottom: 8,
   },
 
   [MOBILE_BREAKPOINT]: {
@@ -32,6 +35,9 @@ export const Sidebar = styled(Flex)({
     button: {
       marginTop: 0,
       marginLeft: 'auto',
+      paddingTop: 10,
+      paddingBottom: 10,
+      fontSize: '0.625rem'
     },
   }
 });
