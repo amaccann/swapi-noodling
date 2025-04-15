@@ -30,7 +30,7 @@ export default function MainMenu() {
 
       <nav>
         <NavItem icon={PlanetIcon} testId="planets" to="/planets">Planets</NavItem>
-        <NavItem icon={WaveIcon} testId="people" to="/people">People</NavItem>
+        <NavItem icon={WaveIcon} testId="people" to="/people">Characters</NavItem>
         <NavItem icon={RocketIcon} testId="starships" to="/starships">Starships</NavItem>
       </nav>
 
