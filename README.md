@@ -7,6 +7,10 @@ https://swapi-noodling.netlify.app
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5d1c21e-fcd4-4da3-a769-3c0edf7aeccf/deploy-status)](https://app.netlify.com/sites/swapi-noodling/deploys)
 
 
+### Development update 16-Apr-2025
+
+- Used the super useful `knip` package to clean up unused variables, exports and other detritus in the code.
+
 ### Development update 15-Apr-2025
 
 - Added some animated `Loader` spinners for page / section loading / pending states. Should make data transitions more apparent, the UX more organic.

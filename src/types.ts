@@ -1,14 +1,3 @@
-export enum DataTypes {
-  Planets = 'planets',
-  People = 'people',
-  Starships = 'starships',
-};
-
-export enum Climates {
-  Arid = 'arid',
-  Tropical = 'tropical',
-}
-
 export type ApiCache = Record<string, ApiCacheItem<unknown>>;
 
 export interface ApiCacheItem<T> {

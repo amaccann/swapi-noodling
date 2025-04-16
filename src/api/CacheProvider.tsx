@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { ApiCache, ApiCacheItem } from '../types';
 
-export const LS_KEY = 'amaccann-swapi-cache';
+const LS_KEY = 'amaccann-swapi-cache';
 const localCache = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
 
 interface CacheProviderValue {
@@ -11,7 +11,7 @@ interface CacheProviderValue {
   set: (key: string, data: ApiCacheItem<unknown>) => void
 }
 
-export const CacheContext = createContext(localCache);
+const CacheContext = createContext(localCache);
 
 export function useCache(): CacheProviderValue {
   return useContext(CacheContext);

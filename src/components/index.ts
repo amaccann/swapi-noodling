@@ -1,11 +1,9 @@
-export {default as Button} from './Button';
 export {default as Error} from './Error';
 export {default as FilmDetails} from './FilmDetails';
 export {default as Flex} from './Flex';
 export {default as Input} from './Input';
 export {default as LabelByUrl} from './LabelByUrl';
 export {default as Loader} from './Loader';
-export {default as Logo} from './Logo';
 export {default as MainMenu} from './MainMenu';
 export {default as Page} from './Page';
 export {default as RemoteDataList} from './RemoteDataList';
