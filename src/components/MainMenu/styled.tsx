@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Flex from '../Flex';
 import { blue, darkBlue } from '../../colors';
-import { MOBILE_BREAKPOINT } from '../../constants';
+import { FONT_10px, MOBILE_BREAKPOINT } from '../../constants';
 
 export const Sidebar = styled(Flex)({
   padding: 8,
@@ -37,7 +37,7 @@ export const Sidebar = styled(Flex)({
       marginLeft: 'auto',
       paddingTop: 10,
       paddingBottom: 10,
-      fontSize: '0.625rem'
+      fontSize: FONT_10px
     },
   }
 });

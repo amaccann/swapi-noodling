@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router';
 import { useCache } from '../../api/CacheProvider';
 import { white } from '../../colors';
+import { FONT_12px } from '../../constants';
 import { PlanetIcon, RocketIcon } from '../../icons';
 import WaveIcon from '../../icons/WaveIcon';
 import Button from '../Button';
@@ -35,7 +36,7 @@ export default function MainMenu() {
       </nav>
 
       <Button
-        fontSize="0.75rem"
+        fontSize={FONT_12px}
         onClick={onClickClear}
         variant="primary-inverse">
           Clear cache

@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 import { ButtonProps } from './types';
 import { blue, red, white } from '../../colors';
-import { MOBILE_BREAKPOINT } from '../../constants';
+import { FONT_14px, MOBILE_BREAKPOINT } from '../../constants';
 
 export const StyledButton = styled.button<ButtonProps>(({
-  fontSize = '0.875rem',
+  fontSize = FONT_14px,
   variant
 }) => {
   const color = variant === 'danger' ? red : blue;

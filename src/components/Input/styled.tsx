@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import { blue, lightBlue, lightGray } from '../../colors';
+import { FONT_12px } from '../../constants';
 
 export const Label = styled.label({
   display: 'block',
   marginBottom: 2,
-  fontSize: '0.75rem',
+  fontSize: FONT_12px,
   color: '#a5a5a5'
 });
 

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { blue, darkBlue, lightBlue, lightGray } from '../../colors';
-import { MOBILE_BREAKPOINT } from '../../constants';
+import { FONT_18px, MOBILE_BREAKPOINT } from '../../constants';
 import { ArrowLeftIcon } from '../../icons';
 
 export const PageWrapper = styled.div({
@@ -28,7 +28,7 @@ export const Title = styled.h1<{ isLoading?: boolean }>(({isLoading}) => ({
 
   [MOBILE_BREAKPOINT]: {
     padding: 8,
-    fontSize: '1.125rem',
+    fontSize: FONT_18px,
   },
 }));
 
